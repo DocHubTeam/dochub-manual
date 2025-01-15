@@ -1,0 +1,8 @@
+$package:
+  dochub-doc-v2:
+    version: 4.0.0
+imports:
+  - docs/root.yaml
+  - arch/root.yaml
+  - entities/root.yaml
+  - poc/root.yaml

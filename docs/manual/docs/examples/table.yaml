@@ -1,0 +1,312 @@
+docs:
+  dochub.table.preset:        # Табличный документ на основании предопределенных данных
+    type: table               # Тип документа 
+    headers:                  # Заголовки таблицы
+      - value: id             # Идентификатор поля для вывода в колонке
+        text: Идентификатор   # Заголовок колокнки
+        sortable: true        # Производить сортировку по колонке
+        align: left           # Форматирование по горизонтали
+        width: 20%            # Ширина колонки 
+      - value: payload
+        text: Значение
+        sortable: true
+        align: left
+    source:                     # Данные для таблицы (массив)
+      - id: 1                 # Поде "id" 
+        payload: Значение 1   # Значение поля "id"
+      - id: 2
+        payload: Значение 2
+  dochub.table.select:        # Табличный документ на основании запроса к данным архитектуры
+    type: table
+    headers:
+      - value: from
+        text: Система 1
+        sortable: true
+        align: left
+        width: 20%
+        link: link-from       # Идентификатор поля, в котором хранится ссылка
+      - value: to
+        text: Система 2
+        sortable: true
+        align: left
+        width: 20%
+        link: link-to
+      - value: direction
+        text: Связь
+        sortable: true
+        align: center
+        width: 5%
+      - value: title
+        text: Описание
+        sortable: true
+        align: left
+      - value: contract
+        text: Контракт
+        sortable: true
+        align: left
+        link: link-contract
+    source: >                   # JSONata запрос к архитектуре
+      (
+        $MANIFEST := $;
+        $distinct([components.$spread().(
+            $COMPONENT := $;
+            $COMPONENT_ID := $keys()[0];
+            $.*.links.{
+                "from": $COMPONENT.*.title,
+                "link-from": "@component/" & $COMPONENT_ID,
+                "to": id ? $lookup($MANIFEST.components, id).title : id,
+                "link-to": "@component/" & id,
+                "contract": contract ? $lookup($MANIFEST.docs, contract).location : contract,
+                "link-contract": "/docs/" & contract,
+                "title": title,
+                "direction": direction
+            };
+        )])^(from)
+      )
+  dochub.table.ex_jsonata:
+    type: table
+    headers:                  
+      - value: id             
+        text: Идентификатор   
+        sortable: true        
+        align: left           
+        width: 20%            
+        link: link
+      - value: title
+        text: Наименование
+        sortable: true
+        align: left
+        link: link
+    source: contexts.jsonata     # Файл с запросом JSONata
+  dochub.table.ex_yaml:
+    type: table               
+    headers:                  
+      - value: name             
+        text: ФИО автора
+        sortable: true        
+        align: left           
+        width: 100%            
+    source: autors.yaml           # Файл с данными
+  dochub.table.ex_http:
+    type: table               
+    headers:                  
+      - value: title
+        text: Name
+        sortable: true        
+        align: left           
+    origin: https://labs.ft.com/tech-radar/demo.json   # Внешний ресурс
+    source: showcases.jsonata     # Обработа данных внешнего ресурса
+  dochub.table.dataset:         # Табличный документ на оcновании источника данных
+    type: table
+    headers:
+      - value: location
+        text: Документ
+        sortable: true
+        align: left
+        width: 100%
+        link: link
+    source: dochub.docs           # Идентификтор источника данных
+  dochub.table.dataset.post:    # Табличный с портобработкой данных источника
+    type: table
+    headers:
+      - value: title
+        text: Документ
+        sortable: true
+        align: left
+        width: 100%
+        link: link
+    origin: dochub.docs         # Оригинальный источник данных
+    source: >                     # Отбирает документы концепции
+      (
+        $[$substring(location, 0, 29) = "DocHub/Руководство/Документы/"].{
+          "title": $substring(location, 29),
+          "link": link
+        }
+      )
+  dochub.dataset.preset:        # Табличный документ на оcновании предопределенного источника данных
+    type: table
+    headers:
+      - value: title
+        text: Класс критичности
+        sortable: true
+        align: left
+        width: 100%
+    source: dochub.components.criticality
+  dochub.dataset.li:           # Табличный документ на оcновании предопределенного источника данных
+    type: table
+    headers:
+      - value: location
+        text: Компонент L1
+        sortable: true
+        align: left
+        width: 100%
+        link: link
+    source: dochub.components.l1
+  dochub.table.integrations:          # Базовое описание таблицы интеграций
+    type: table
+    headers:
+      - value: from
+        text: Система 1
+        sortable: true
+        align: left
+        width: 20%
+        link: link-from       
+      - value: to
+        text: Система 2
+        sortable: true
+        align: left
+        width: 20%
+        link: link-to
+      - value: direction
+        text: Связь
+        sortable: true
+        align: center
+        width: 5%
+      - value: title
+        text: Описание
+        sortable: true
+        align: left
+      - value: contract
+        text: Контракт
+        sortable: true
+        align: left
+        link: link-contract
+  dochub.table.integrations.vuex:     # Отбирает только компоненты VUEX
+    $prototype: dochub.table.select   # Родительская таблицы
+    origin: dochub.integrations       # Базовый источник данных
+    source: >
+        (
+            $[from="VUEX" or to="VUEX"]
+        )
+  dochub.table.multi_dependencies:        # Табличный документ на основании источника данных с множественными зависимостями
+    type: table
+    headers:
+      - value: from
+        text: Система 1
+        sortable: true
+        align: left
+        width: 20%
+        link: link-from
+      - value: to
+        text: Система 2
+        sortable: true
+        align: left
+        width: 20%
+        link: link-to
+      - value: direction
+        text: Связь
+        sortable: true
+        align: center
+        width: 5%
+      - value: title
+        text: Описание
+        sortable: true
+        align: left
+      - value: criticality
+        text: Критичность связи
+        sortable: true
+        align: left
+    source: dochub.multi_dependencies
+datasets:                       # Источники данных
+  # **********************************************
+  #     Источник с предопределенными данными
+  # **********************************************
+  dochub.components.criticality:    # Определяет уровни критичности
+    source:                         # Предопределенные данные
+      - id: k1
+        title: Уровень K1
+      - id: k2
+        title: Уровень K2
+      - id: k3
+        title: Уровень K3
+      - id: k4
+        title: Уровень K4
+
+  # **********************************************
+  #   Источники с запросами к данным архитектуры
+  # **********************************************
+
+  # Возвращает список всех документов
+  dochub.docs:                    
+    source: >                     # Выводит все документы
+      (
+        [docs.$spread().{
+          "location": *.location,
+          "link": "/docs/" & $keys()[0]
+        }[location]^(location)]
+      )
+
+  # Возвращает все архитектурные компоненты DocHub
+  dochub.components:            
+    source: >                     # JSONata запрос к архитектуре
+      (
+        [components.$spread().{
+            "id": $keys()[0],
+            "location": *.title,
+            "link": "@component/" & $keys()[0]
+        }[$substring(id, 0, 7)="dochub."]^(title)]
+      )
+
+  # **********************************************
+  # Источники с зависимостями от других источников
+  # **********************************************
+
+  # Выбирает только L1 для архитектурных компонентов DocHub
+  dochub.components.l1:         
+    origin: dochub.components     # Базовый источник данных
+    source: >                     # JSONata запрос к архитектуре
+      ($[$count($split(id, "."))=2])
+
+  # Базовый источник данных интеграций
+  dochub.integrations:
+    source: >                     # JSONata запрос к архитектуре
+      (
+        $MANIFEST := $;
+        $distinct([components.$spread().(
+            $COMPONENT := $;
+            $COMPONENT_ID := $keys()[0];
+            $.*.links.{
+                "from": $COMPONENT.*.title,
+                "link-from": "@component/" & $COMPONENT_ID,
+                "to": id ? $lookup($MANIFEST.components, id).title : id,
+                "link-to": "@component/" & id,
+                "contract": contract ? $lookup($MANIFEST.docs, contract).location : contract,
+                "link-contract": "/docs/" & contract,
+                "title": title,
+                "direction": direction
+            };
+        )])^(from)
+      )
+
+  # **********************************************
+  # Источники с множественными зависимостями
+  # **********************************************
+  dochub.multi_dependencies:
+    origin:
+      integrations: dochub.integrations             # Указываем зависимость от источника "dochub.integrations"
+      criticality: dochub.components.criticality    # Указываем зависимость от источника "dochub.components.criticality"
+      manifest: "($)"                               # Указывается зависимость от результата запроса JSONata - "($)"
+    source: >
+      (
+        /* Сохраняем контекст для использования в глубине */
+        $CONTEXT := $;
+
+        /* Обрабатываем данные подготовленные источником "dochub.integrations" */
+        integrations.(
+            /* Восстанавливаем ID компонента, чтобы получить по нему данные */
+            $ID_FROM := $reverse($split($."link-from", "/"))[0];
+            $ID_TO := $reverse($split($."link-to", "/"))[0];
+
+            /* Получаем данные критичности */
+            $CRITICALLY_FROM := $lookup($CONTEXT.manifest.components, $ID_FROM).criticality;
+            $CRITICALLY_FROM := $CRITICALLY_FROM ? $CRITICALLY_FROM : 4;
+            $CRITICALLY_TO := $lookup($CONTEXT.manifest.components,$ID_TO).criticality;
+            $CRITICALLY_TO := $CRITICALLY_TO ? $CRITICALLY_TO : 4;
+            $CRITICALLY := $CRITICALLY_FROM < $CRITICALLY_TO ? $CRITICALLY_FROM : $CRITICALLY_TO;
+
+            /* Обогащаем данные DataSet "dochub.integrations" информацией о критичности связи */
+            $merge([$, {
+                "criticality": $CONTEXT.criticality[id="k" & $CRITICALLY].title
+            }])
+        );
+      )

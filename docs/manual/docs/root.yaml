@@ -1,0 +1,537 @@
+imports:
+  - examples/table.yaml
+  - examples/charts.yaml
+docs:
+  # *****************************************  
+  #        Руководство по документам 
+  # *****************************************  
+  dochub.docs:
+    location: DocHub/Руководство/Документы
+    description: Документы
+    autor: R.Piontik        # Кастомное поле - Автор документа
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: docs.md
+  dochub.markdown:
+    location: DocHub/Руководство/Документы/Markdown
+    description: Markdown
+    autor: R.Piontik
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: markdown.md
+  dochub.plantuml:
+    location: DocHub/Руководство/Документы/PlantUML
+    description: PlantUML
+    autor: R.Piontik
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: plantuml.md
+  dochub.mermaid:
+    location: DocHub/Руководство/Документы/Mermaid
+    description: Mermaid
+    autor: R.Piontik
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: mermaid.md
+  dochub.network:
+    location: DocHub/Руководство/Документы/Network
+    description: Network
+    autor: R.Piontik
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: network.md
+  dochub.asyncapi:
+    location: DocHub/Руководство/Документы/AsyncApi
+    description: Markdown
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: asyncapi.md
+  dochub.swagger:
+    location: DocHub/Руководство/Документы/Swagger
+    description: Swagger
+    autor: R.Piontik
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: swagger.md
+  dochub.tables:
+    location: DocHub/Руководство/Документы/Таблицы
+    description: Таблицы
+    autor: R.Piontik
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: tables.md
+  dochub.smartants:
+    location: DocHub/Руководство/Документы/SmartAnts
+    description: SmartAnts
+    autor: R.Piontik
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: smartants.md
+  dochub.charts:
+    location: DocHub/Руководство/Документы/Диаграммы
+    description: Диаграммы
+    author: V.Markin
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: charts.md
+  dochub.bpmn:
+    location: DocHub/Руководство/Документы/BPMN
+    description: BPMN диаграммы
+    autor: R.Piontik
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: bpmn.md
+  dochub.excalidraw:
+    location: DocHub/Руководство/Документы/Excalidraw
+    description: Excalidraw диаграммы
+    autor: R.Piontik
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: excalidraw.md
+  dochub.wysiwyg:
+    location: DocHub/Руководство/Документы/WYSIWYG
+    description: WYSIWYG
+    autor: R.Piontik
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: wysiwyg.md
+
+  # *****************************************  
+  #            Примеры документов
+  # *****************************************  
+  dochub.wysiwyg.example:
+    description: Пример WYSIWYG документа
+    autor: R.Piontik
+    type: jodit
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: examples/wysiwyg.wyg
+  dochub.excalidraw.example:
+    description: Пример Excalidraw диаграммы
+    autor: R.Piontik
+    type: excalidraw
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: examples/excalidraw.excalidraw
+  dochub.smartants.examples.simple:
+    location: DocHub/Руководство/Документы/SmartAnts/01 Простой пример
+    description: Простой пример использования SmartAnts
+    autor: R.Piontik
+    type: smartants           # Тип документа
+    source:                   # Задаем константные данные для генерации диаграммы
+      header:                 # Заголовок диаграммы
+        title: Авторизация    # Текст заголовка
+        style:                # Стили заголовка
+          color: "#fbaaaa"
+          font-size: 22px
+          font-weight: 800
+      config:                 # Конфигурируем расположение элементов на диаграмме 
+        distance: 120         # Дистанция между элементами
+        trackWidth: 24        # Ширина дорожек (треков)
+      nodes:                  # Определяем элементы диаграммы
+        system:               # Идентификатор элемента. Определяем иерархию при отображении диаграммы
+          title: Система      # Название компонента
+          symbol: system      # Символ (примитив) которым будет представлен элемент на диаграмме
+        user:
+          title: Пользователь
+          symbol: user
+      links:                    # Связи между компонентами
+        - from: user            # Откуда будет прокладываться маршрут
+          to: system            # Куда
+          title: Логин и пароль # Описание маршрута
+          style: "->"           # Направление маршрута <- / -> / <->
+          link: "/docs/dochub.swagger" # Ссылка перехода при клике на надпись
+        - from: system
+          to: user
+          title: JWT токен
+          style: "->"
+          link: "/docs/dochub.swagger"
+  dochub.smartants.examples.colors:
+    description: Пример раскрашивания линий
+    autor: R.Piontik
+    type: smartants           
+    source:                   
+      config:                 
+        distance: 120         
+        trackWidth: 24        
+      nodes:                  
+        system:               
+          title: Система      
+          symbol: system      
+        user:
+          title: Пользователь
+          symbol: user
+      links:                    
+        - from: user            
+          to: system            
+          title: Логин и пароль 
+          style: "-[#ff0000]->"         # Указывается цвет линии через RGB
+          link: "/docs/dochub.swagger"
+        - from: system
+          to: user
+          title: JWT токен
+          style: "-[#green]->"         # Указывается цвет линии через alias
+          link: "/docs/dochub.swagger"
+  dochub.smartants.examples.domains:
+    location: DocHub/Руководство/Документы/SmartAnts/02 Домены
+    description: Пример диаграммы SmartAnts с доменами
+    autor: R.Piontik
+    type: smartants           
+    source:                   
+      config:                 
+        distance: 120         
+        trackWidth: 24        
+      nodes:
+        inside:                      # Определим домены 
+          title: Внутренняя среда
+          background: lightgreen     # добавим фон области
+          opacity: 0.3               # и прозрачность фона
+        outside:
+          title: Внешняя среда
+        inside.system:               # Добавим в идентификатор принадлежность к домену "inside"
+          title: Система      
+          symbol: system      
+        outside.user:                # Аналогично для пользователя добавим домен "outside"
+          title: Пользователь
+          symbol: user
+      links:                    
+        - from: outside.user         # Модифицируем идентификаторы в связях      
+          to: inside.system            
+          title: Логин и пароль 
+          style: "->"           
+        - from: inside.system
+          to: outside.user
+          title: JWT токен
+          style: "->"
+  dochub.smartants.examples.complex:
+    location: DocHub/Руководство/Документы/SmartAnts/03 Сложная диаграмма
+    description: Сложная диаграмма SmartAnts
+    autor: R.Piontik
+    type: smartants           
+    source: examples/sa-complex.yaml
+  dochub.smartants.examples.complex.hideboundaries:
+    description: Сложная диаграмма SmartAnts. Скрыты заголовки областей
+    type: smartants
+    source: examples/sa-complex-hide-boundary.yaml
+  dochub.smartants.examples.complex.hideleaves:
+    description: Сложная диаграмма SmartAnts. Скрыты заголовки элементов
+    type: smartants
+    source: examples/sa-complex-hide-leaves.yaml
+  dochub.smartants.examples.complex.hidetitles:
+    description: Сложная диаграмма SmartAnts. Скрыты точечно заголовки элемента и области
+    type: smartants
+    source: examples/sa-complex-hide-title.yaml
+  dochub.smartants.examples.group-links:
+    location: DocHub/Руководство/Документы/SmartAnts/04 Cвязи объединенных объектов
+    description: Диаграмма взаимодействий объединенных объектов SmartAnts
+    autor: R.Piontik
+    type: smartants           
+    source: examples/sa-group.yaml
+  dochub.smartants.examples.gravity:
+    location: DocHub/Руководство/Документы/SmartAnts/05 Gravity points 
+    description: Размещение объектов объединенных в группы
+    autor: R.Piontik
+    type: smartants           
+    source: examples/sa-gravity.yaml
+  dochub.smartants.examples.anim:
+    location: DocHub/Руководство/Документы/SmartAnts/06 Анимация
+    description: Анимированная диаграмма SmartAnts
+    autor: R.Piontik
+    type: smartants           
+    source: examples/sa-anim.yaml
+  dochub.smartants.examples.custom_symbol:
+    location: DocHub/Руководство/Документы/SmartAnts/07 Собственные символы
+    description: Кастомные символы SmartAnts
+    autor: R.Piontik
+    type: smartants           
+    source: examples/sa-symbol.yaml
+  dochub.smartants.examples.simple_query:
+    location: DocHub/Руководство/Документы/SmartAnts/08 Простой запрос к данным
+    description: Простой запрос к данным в SmartAnts
+    autor: R.Piontik
+    type: smartants           
+    source: >
+      (
+        /* Определяем фильтр для компонентов архитектуры */
+        $matcher := /^[a-zA-Z]*\.[a-zA-Z]*$/i;
+        /* Генерируем структуру для диаграммы */
+        {
+          /* Формируем ноды из компонентов */
+          "nodes": $merge(components.$spread().(
+            /* Получаем идентификатор компонента */
+            $id := $keys()[0];
+            /* Если идентификатор компонента удовлетворяет фильтру, создаем ноду */
+            $matcher($id) ? {
+                /* Отсекаем домен верхнего уровня для исключения отображения компонентов в иерархии */
+                $split($id, ".")[1]: {
+                    "title": *.title,
+                    /* Преобразуем entity компонентов в понятные диаграмме символы actor -> user */
+                    "symbol": *.entity = "actor" ? "user" : *.entity
+                }
+            }
+
+          ))
+        }
+      )
+  dochub.smartants.examples.complex_query:
+    location: DocHub/Руководство/Документы/SmartAnts/09 Сложный запрос к данным
+    description: Сложный запрос к данным в SmartAnts
+    autor: R.Piontik
+    type: smartants           
+    source: examples/sa-query.jsonata
+  dochub.example.pml:
+    type: PlantUML
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: examples/example.puml
+  dochub.example.mermaid:
+    type: Mermaid
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: examples/mermaid.mmd
+  dochub.example.network:
+    type: Network
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: >
+      (
+        $manifest := $;
+        /* Перебираем все компоненты */
+        $adges  := $distinct(components.$spread().(
+          $node_id := $keys()[0];
+          $node := $.*;
+          /* Определяем связи */
+          $node.links.{
+            "from": $node_id,
+            "to": id,
+            "label": title
+          }
+        ));
+        /* Выявляем ноды из связей */
+        $nodes := $distinct($append($adges.from, $adges.to)).(
+          $struct := $split($, ".");
+          $group := $replace($, "." & $reverse($struct)[0], "");
+          {
+            "id": $,
+            "label": $lookup($manifest.components, $).title,
+            "group": $group,
+            "level": $count($struct),
+            /* Позиционируем ноду тем выше, чем выше слой */
+            "y": $count($struct) * 200
+          }
+        );
+        /* Добавляем ноды легенды */
+        $nodes := $append($nodes, (
+          /* Получаем максимальную точку позиции нод */
+          $height := $max($nodes.y);
+          $groups := $distinct($nodes.group)^($);
+          /* Вычисляем центр легенды */
+          $offset := -($height / 2);
+          /* Определяем шаг легенды */
+          $step := $height / $count($groups);
+          /* Строим легенду */
+          $map($groups, function($v, $i, $a) {
+            {
+              "id": "legend-" & $string($i),
+              "x": -600,
+              "y": $i * $step + $offset,
+              "shape": "square",
+              "label": $v,
+              "group": $v,
+              "value": 1,
+              "fixed": true,
+              "physics": false
+            }
+          })
+        ));
+        /* Выводим результат */
+        {
+          "nodes": $nodes, /* Массив нод */
+          "edges": $adges, /* Массив связей */
+          "options": {     /* Параметры сетевой диаграммы https://visjs.github.io/vis-network/docs/network/ */
+            "clickToUse": false /* Отключаем обязательный клик перед взаимодействем с пользователем */
+          }
+        }
+      )
+  dochub.example.swgr:
+    type: OpenAPI
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: examples/example.yaml
+  dochub.example.asyncapi:
+    type: AsyncApi
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: examples/asyncapi.yaml
+  dochub.example.bpmn:
+    location: DocHub/Руководство/Документы/BPMN/Простой пример
+    type: bpmnjs
+    source: examples/bpmn.xml
+  dochub.example.bpmn.full:
+    location: DocHub/Руководство/Документы/BPMN/Расширенный пример
+    type: bpmnjs
+    source: examples/pizza-collaboration.xml
+  dochub.example.bpmn.analyse:
+    origin: examples/pizza-collaboration.xml  # Указываем источником оригинальных данных XML файл
+    source: >                                 # Обрабатываем XML
+      (
+          [$."semantic:definitions".*."semantic:task"."$"]
+      )
+    type: table                               # Тип документа "таблица"
+    headers:                                  # Заголовки таблицы
+      - value: id
+        text: Идентификатор
+        sortable: true
+        align: left
+        width: 20%
+      - value: name
+        text: Название задачи
+        sortable: true
+        align: left
+
+  # *****************************************  
+  #                 Шаблоны
+  # *****************************************  
+  dochub.templates:         # Пример генерации markdown документа по шаблону
+    location: DocHub/Руководство/Документы/Шаблоны
+    description: Шаблоны
+    type: markdown
+    autor: R.Piontik        # Кастомное поле - Автор документа
+    approvers:              # Кастомное поле - список согласующих
+      - P.Petrov
+      - S.Sidorov
+      - N.Nikolaev
+    source: >               # JSONata запрос для формирования параметров шаблона
+      (
+        {
+          "id": $self._id,              /* Идентификатор документа */
+          "autor": $self.autor,         /* Автор документа */
+          "approvers": $self.approvers, /* Согласующие */
+          "docs": [docs.$spread().{     /* Другие документы автора */
+            "id": $keys()[0],
+            "title": *.description,
+            "autor": *.autor
+          }][autor=$self.autor]
+        }
+      )
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    template: templates.md  # Шаблон документа
+  dochub.templates.pml: # Пример генерации PlantUML документа по шаблону
+    type: PlantUML
+    source: >
+      (
+        {
+          "entities": $distinct([     /* Получаем все использованные сущности при описании архитектуры */ 
+              components.*.entity
+          ])
+        }
+      )
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    template: examples/template.puml
+  dochub.templates.asyncapi: # Пример генерации AsyncAPI документа по шаблону
+    type: AsyncAPI
+    source: >
+      (
+        $BODY := $mergedeep([components.*.asyncapi]);
+        {
+            "content": [$BODY.$spread().{
+                "field": $keys()[0],
+                "body": $string($lookup($, $keys()[0]))
+            }]
+        }
+      )
+    template: examples/asyncapi_template.json
+  dochub.templates.openapi: # Пример генерации OpenAPI документа по шаблону
+    type: OpenAPI
+    source: >
+      (
+        $BODY := $mergedeep([components.*.openapi]);
+        {
+            "content": [$BODY.$spread().{
+                "field": $keys()[0],
+                "body": $string($lookup($, $keys()[0]))
+            }]
+        }
+      )
+    template: examples/openapi_template.json

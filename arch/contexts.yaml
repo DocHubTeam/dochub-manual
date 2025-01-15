@@ -1,0 +1,54 @@
+contexts:   # Контексты представления архитектурных компонентов
+    dochub:                                 # Идентификатор контекста
+        title: Общая архитектура DocHub     # Название контекста
+        location: DocHub                    # Размещение документа в дереве навигации
+        components:                         # Компоненты входящие в контекст
+            - dochub.front
+            - dochub.user
+            - dochub.plantuml
+            - dochub.gitlab
+            - dochub.web
+    dochub.front:
+        title: Контейнерная архитектура DocHub
+        location: DocHub/Контейнерная архитектура
+        components:
+            - dochub.browser.*
+            - dochub.front.*
+            - dochub.gitlab.*
+            - dochub.plantuml.*
+            - dochub.web
+    dochub.front.spa:
+        title: Компонентная архитектура DocHub
+        location: DocHub/Компонентная архитектура
+        components:
+            - dochub.front.spa.*
+    dochub.custom:
+        title: Компоненты эксперта R.Piontik
+        location: DocHub/Контекст по источнику
+        extra-links: false  # Отключаем вывод связанных компонентов, явно не определенных в контексте
+                            # Определяем источник данных для контекста.
+        source: >           # Отбираем все компоненты у которых кастомное поле "expert" = "R.Piontik"
+            (               
+                $ ~> | $ | {
+                    "components": $merge(components.$spread().(
+                        $.*.expert = 'R.Piontik' ? $ : {}
+                    )) 
+                } |
+            )
+        components:
+            - dochub.*      # Выводим все компоненты домена dochub
+    dochub.front.spa.blank:
+        title: Карточка объекта
+        components:
+            - dochub.front.spa.blank.*
+    dochub.front.spa.blank.doc:            
+        title: Документ
+        components:
+            - dochub.front.spa.blank.doc.*
+    dochub.sequence:
+        title: Диаграмма взаимодействия DocHub
+        icon: settings_ethernet
+        location: DocHub/Диаграмма взаимодействия
+        presentation: plantuml
+        uml: ../docs/sequence.puml
+

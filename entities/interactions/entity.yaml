@@ -1,0 +1,358 @@
+entities: # Сущности расширенной матемодели
+    # Взаимводействия
+    interactions:               # Секция, где будет описываться объекты сущности "взаимодействие". Обязательно.
+        title: Взаимодействия   # Название сущности. Обязательно.
+        description: >          # Описание сущности текст или ссылка на документ. Необязательно.
+            Взаимодействия между компонентами
+        menu: >                 # Генератор раcположения в меню. Запрос или явное описание объета. Необязательно.
+          (
+            $interactions := $.interactions;
+            $makeLocation := function($id) {(
+                $arrleft := function($arr ,$count) {
+                    $map($arr, function($v, $i) {
+                    $i <= $count ? $v
+                    })
+                };
+                $domains := $split($id, ".");
+                "Взаимодействия/" & $join($map($domains, function($domain, $index) {(
+                    $lookup($interactions, $join($arrleft($domains, $index), ".")).title
+                )}), "/");
+            )};
+            $append([{
+                "icon": *.icon,                                                 /* Получаем иконку */
+                "link": "/entities/interactions/tree",                           /* Ссылка на форму представления tree (дерево дерево объектов "interactions") */
+                "location": "Взаимодействия"                                    /* Расположение в меню */
+            }
+            ],
+                [$.interactions.$spread().{
+                    "icon": *.icon,                                             /* Получаем иконку */
+                    "link": "/entities/interactions/blank?id=" & $keys()[0],     /* Формируем ссылку на бланк документ */
+                    "location": $makeLocation($keys()[0])                       /* Формируем расположение в меню */
+                }][location]
+            );
+          )
+        presentations:          # Представления объектов сущности. Обязательно.
+            tree:               # Идентификатор представления. Каталог взаимодействий в виде дерева.
+              type: plantuml  # Тип представления. Обязательно.
+              template: templates/tree.puml   # Путь к шаблону. Обязательно.
+              title: Каталог взаимодействия   # Человекочитаемое название презентации
+              params:         # jsonscema контроля параметров презентации (опционально)
+                type: object
+                properties:
+                  id:         # Необязательный параметр. Если он есть, в дереве подсвечивается сущность
+                    type: string
+              source: >       # Источник данных для рендера шаблона. Возвращает дерево объектов "interactions". Обязательно.
+                (
+                    $set("rpev-id", undefined);
+                    $arrleft := function($arr ,$count) {
+                        $map($arr, function($v, $i) {
+                            $i <= $count ? $v
+                        })
+                    };
+                    $interactions := $.interactions;
+                    [$interactions.$spread().($merge([{"id" : $keys()[0]}, $.*]))^(id).(
+                        $prev_nodes := $split($get("rpev-id"), ".");
+                        $prev_level := $count($prev_nodes);
+                        $curr_nodes := $split(id, ".");
+                        $set("isdiff", false);
+                        $result := $map($curr_nodes, function($v, $i) {(
+                            $set("isdiff", $get("isdiff") or $prev_level = 0 or $prev_level <= $i or $v != $prev_nodes[$i]) ? (
+                                $id := $join($arrleft($curr_nodes, $i), ".");
+                                $interaction :=  $lookup($interactions, $id);
+                                {
+                                    "id": $id,
+                                    "level": $pad("", $i + 2, "*"),
+                                    "title": ($interaction ? $interaction.title : $id),
+                                    "link": $id=$params.id ? undefined : "/entities/interactions/blank?id=" & $id
+                                }
+                            );
+                        )});
+                        $set("rpev-id", id);
+                        $result 
+                    )];
+                )  
+            blank:              # Карточка объекта
+              type: plantuml  # Тип представления
+              title: Диаграмма взаимодействия
+              template: templates/blank.puml
+              params:         
+                type: object
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              source: >                   # Источник данных для рендера шаблона. Возвращает объект "interactions" по идентификатору переданному в параметрах.
+                  (
+                      $lookup(interactions, $params.id) ~> | steps | {"from": $lookup($$.components, from).title, "to": $lookup($$.components, to).title}|
+                  )
+            export:                       # Экспорт взаимодействия в BPMN диаграмму
+              type: upload                # Специальный тип документа, который выгружает результат генерации документа
+              mimetype: "application/xml" # Тип выгружаемого контента. По умолчанию text/plain. Подробнее https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+              title: Экспорт в BPMN
+              template: templates/bpmn.xml
+              params:         
+                type: object
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              source: >
+                (
+                  $mul := 120;
+                  $lookup(interactions, $params.id).(
+                      $this := $;
+                      $body := {
+                          "id": $params.id,
+                          "start": {
+                              "name": $this.triggers[0],
+                              "stepid": "step0",
+                              "outgoing": "flow0",
+                              "shapey": $mul,
+                              "labely": $mul - 30
+                          },
+                          "steps": $this.steps ~> $map(function($v, $i) { 
+                              {
+                                  "name": $v.value,
+                                  "stepid": "step" & ($i+1),
+                                  "flowid": "flow" & ($i),
+                                  "incoming": "flow" & ($i),
+                                  "outgoing": "flow" & ($i+1),
+                                  "sourceRef": "step" & ($i),
+                                  "targetRef": "step" & ($i+1),
+                                  "shapey": ($i * $mul) + ($mul * 2),
+                                  "flowy": ($i * $mul) + ($mul * 2) - ($i = 0 ? 84 : 40),
+                                  "flowdy": ($i * $mul) + ($mul * 2)
+                              }
+                          })
+                      };
+                      $step_count := $count($body.steps);
+                      $merge([$body, {
+                          "end": {
+                              "name": $this.results[0],
+                              "stepid": "step" & ($step_count + 1),
+                              "flowid": "flow" & ($step_count),
+                              "incoming": "flow" & ($step_count),
+                              "sourceRef": "step" & ($step_count),
+                              "targetRef": "step" & ($step_count+1),
+                              "shapey": $step_count * $mul + ($mul * 2) + 50,
+                              "labely": $step_count * $mul - 30 + ($mul * 2) + 50,
+                              "flowy": ($step_count * $mul) + ($mul * 2 - 40),
+                              "flowdy": ($step_count * $mul) + ($mul * 2) + 54
+
+                          }
+                      }])
+                  )
+                )
+            data:
+              type: upload
+              title: Выгрузка данных JSON
+              params:
+                type: object
+                properties:
+                  id:
+                    type: string
+                required:
+                  - id
+              source: >
+                  (
+                      $lookup(interactions, $params.id)
+                  )
+        schema:                  # JSON Schema контролирующая описание объекта сущности
+            type: object
+            patternProperties:
+                "[a-zA-Z0-9_]*(\\.[a-zA-Z0-9_]*)*$": # Шаблон ключа
+                    type: object
+                    properties:
+                        icon:
+                            title: Иконка
+                            type: string
+                            minLength: 2
+                        title:
+                            title: Наименование
+                            type: string
+                            minLength: 5
+                        triggers:
+                            title: События запускающие взаимодействие
+                            type: array
+                            minItems: 1
+                            items:
+                                type: string
+                                minLength: 5
+                        steps:
+                            title: Описание взаимодействия
+                            type: array
+                            minItems: 1
+                            items:
+                                type: object
+                                properties:
+                                    from:
+                                        title: От кого
+                                        $ref: "#/$rels/components.component" # Указываем, что данное поле должно содержать идентификатор объекта сущности components
+                                    to:
+                                        title: Кому
+                                        $ref: "#/$rels/components.component"
+                                    value:
+                                        title: Что
+                                        type: string
+                                        minLength: 1
+                                    sub-interactions: # Ссылку на вложенное взаимодействие
+                                      title: Вложенное взаимодействие
+                                      $ref: "#/$rels/interactions.interaction"
+                                required:
+                                    - from
+                                    - to
+                                    - value
+                        results:
+                            title: Результаты взаимодействия
+                            type: array
+                            minItems: 1
+                            items:
+                                type: string
+                                minLength: 5
+                    required:
+                        - title
+        objects:                    # Декларирование объектов сущности
+          interaction:              # Объектом сущности является взаимодействие - "interaction"
+            route: "/"              # Путь к массиву объектов в Data Lake относительно пути /interactions
+                                    # Если route не указан, то по умолчанию он равен "/"
+            title: Взаимодействие   # Название объекта
+            # JSONata генератор символа в svg для представления в диаграммах.
+            #  $object  - передается объект рендеринга. Может быть не определен. В этом случае, необходимо вернуть неспецифичный (общий) символ объекта.
+            #  $        - Data Lake архитектуры. Может быть не определен, если Data Lake недоступен.
+            #
+            # Если символ не определен, будет использован символ по умолчанию.
+            symbol: >
+              (
+                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64px" height="64px">'
+                  & '<path d="M 16 3 C 14.148438 3 12.59375 4.285156 12.144531 6 L 6 6 L 6 12 L 3 12 L 3 20 L 6 20 L 6 26 L 12.144531 26 '
+                  & 'C 12.59375 27.714844 14.148438 29 16 29 C 17.851563 29 19.40625 27.714844 19.855469 26 L 26 26 L 26 20 L 29 20 L 29 '
+                  & '12 L 26 12 L 26 6 L 19.855469 6 C 19.40625 4.285156 17.851563 3 16 3 Z M 16 5 C 17.117188 5 18 5.882813 18 7 C 18 '
+                  & '8.117188 17.117188 9 16 9 C 14.882813 9 14 8.117188 14 7 C 14 5.882813 14.882813 5 16 5 Z M 8 8 L 12.144531 8 C 12.59375 '
+                  & '9.714844 14.148438 11 16 11 C 17.851563 11 19.40625 9.714844 19.855469 8 L 24 8 L 24 12 L 21 12 L 21 20 L 24 20 L 24 24 '
+                  & 'L 19.855469 24 C 19.40625 22.285156 17.851563 21 16 21 C 14.148438 21 12.59375 22.285156 12.144531 24 L 8 24 L 8 20 L 11 '
+                  & '20 L 11 12 L 8 12 Z M 5 14 L 9 14 L 9 18 L 5 18 Z M 23 14 L 27 14 L 27 18 L 23 18 Z M 16 23 C 17.117188 23 18 23.882813 '
+                  & '18 25 C 18 26.117188 17.117188 27 16 27 C 14.882813 27 14 26.117188 14 25 C 14 23.882813 14.882813 23 16 23 Z"/>'
+                & '</svg>'
+              )
+
+# Использование сущности расширенной метамодели
+interactions:
+  dochub:
+    title: DocHub 
+  dochub.user:
+    title: Пользовательский путь
+    triggers:
+      - Просмотр архитектуры
+    steps:
+      - from: dochub.user
+        to: dochub
+        value: Вход на портал
+      - from: dochub
+        to: dochub.user
+        value: Представление архитектурных артефактов
+    results:
+      - Информация о существующей архитектуре
+  dochub.user.check:
+    title: Проверка отклонений выявленных валидаторами
+    triggers:
+      - Просмотр архитектуры
+    steps:
+      - from: dochub.user
+        to: dochub
+        value: Выбор раздела Проблемы
+      - from: dochub
+        to: dochub.user
+        value: Генерация дерева со статусами
+      - from: dochub.user
+        to: dochub
+        value: Выбор отклонения
+      - from: dochub
+        to: dochub.user
+        value: Карточка отклонения
+    results:
+      - Информация об отклонениях
+  dochub.user.research:
+    title: Изучение документации
+    triggers:
+      - Просмотр документов
+    steps:
+      - from: dochub.user
+        to: dochub
+        value: Выбор раздела Документы
+      - from: dochub
+        to: dochub.user
+        value: Представление
+    results:
+      - Актуальная информация из документов
+
+  # Пример ссылок на объекты сущности
+  dochub.customer:
+    title: Клиентский путь
+  dochub.customer.promotion:
+    title: Продвижение
+  dochub.customer.promotion.article:
+    title: Статья на Хабре
+    triggers:
+      - Выдача в поиске
+    results:
+      - Переход в репозиторий
+    steps:
+      - from: interactions.example.habr
+        to: interactions.example.dochub.customer
+        value: Анализ новых статей
+      - from: interactions.example.dochub.customer
+        to: interactions.example.habr
+        value: Чтение статьи о DocHub
+      - from: interactions.example.dochub.customer
+        to: dochub.gitlab.repository
+        value: Переход в репозиторий
+
+  dochub.customer.deployment:
+    title: Разворачивание DocHub
+    triggers:
+      - Первое знакомство с DocHub
+    results:
+      - Потенциальный клиент (лид)
+    steps:
+      - from: interactions.example.dochub.customer
+        to: interactions.example.habr.articles
+        value: Получение информации о DocHub
+        sub-interactions: dochub.customer.promotion.article # Здесь ссылка на взаимодействие пользователя со статьями
+      - from: interactions.example.dochub.customer
+        to: dochub.gitlab.repository
+        value: Изучение инструкции
+      - from: interactions.example.dochub.customer
+        to: dochub.gitlab.repository
+        value: Развертывание
+      - from: interactions.example.dochub.customer
+        to: dochub
+        value: Первый опыт
+
+components:
+  interactions:
+    title: Взаимодействия
+    entity: component
+  interactions.example:
+    title: Примеры взаимодействий
+    entity: component
+  interactions.example.dochub:
+    title: Примеры взаимодействий DocHub
+    entity: component
+  interactions.example.dochub.customer:
+    title: Клиент
+    entity: actor
+  interactions.example.habr:
+    title: Хабр
+    entity: component
+  interactions.example.habr.articles:
+    title: Статьи
+    entity: component
+
+contexts:
+  interactions:
+    title: Контекст для отображения объектов вовлеченных во взаимодействие
+    components:
+      - interactions
+      - interactions.**

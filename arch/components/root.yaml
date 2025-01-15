@@ -1,0 +1,8 @@
+imports:
+  - front.yaml
+  - plantuml.yaml
+  - user.yaml
+  - gitlab.yaml
+  - browser.yaml
+  - web.yaml
+  - examples/root.yaml

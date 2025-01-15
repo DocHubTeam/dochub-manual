@@ -1,0 +1,12 @@
+#***********************************************************
+#                   Компонет-примеры
+#***********************************************************
+components:
+  dochub.examples:
+    title: Примеры
+    entity: component
+    expert: R.Piontik
+imports:
+  - order.yaml
+  - payment.yaml
+  - context.yaml

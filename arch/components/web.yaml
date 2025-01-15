@@ -1,0 +1,12 @@
+components:
+  #***********************************************************
+  #                       C4Model L1
+  #***********************************************************
+  dochub.web:
+    title: WEB   
+    entity: component
+    expert: R.Piontik
+    technologies:
+      - HTTP
+    aspects:
+      - dochub.manifest.storage

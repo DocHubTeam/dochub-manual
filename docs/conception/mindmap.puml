@@ -1,0 +1,57 @@
+@startmindmap
+* [[https://github.com/RabotaRu/DocHub DocHub]]
+** Управление
+*** Управление архитектурой
+**** [[@document/dochub.components Манифесты компонентов]]
+***** Инкрементальное развитие
+****** [[https://about.gitlab.com/ GitLab]]
+**** [[@document/dochub.contexts Манифесты контекстов]]
+***** Инкрементальное развитие
+****** [[https://about.gitlab.com/ GitLab]]
+**** [[@document/dochub.aspects Манифесты аспектов]]
+***** Инкрементальное развитие
+****** [[https://about.gitlab.com/ GitLab]]
+*** Управление технологиями
+**** [[@document/dochub.technologies Манифесты технологий]]
+***** Инкрементальное развитие
+****** [[https://about.gitlab.com/ GitLab]]
+*** Управление артефактами
+**** [[@document/dochub.docs Манифесты артефактов]]
+***** Инкрементальное развитие
+****** [[https://about.gitlab.com/ GitLab]]
+** Интеграция
+*** Внешние манифесты
+**** HTTP
+*** Внешние данные
+**** [[@document/dochub.tables Источники данных]]
+** Публикация
+*** Автоматическая генерация\nартефактов
+**** [[@document/dochub.datasets Источники данных]]
+***** [[@document/dochub.tables Аналитические таблицы]]
+***** [[@document/dochub.templates Шаблоны]]
+**** [[@document/dochub.contexts Диаграммы контекстов]]
+***** [[https://plantuml.com/ PlantUML]]
+**** [[@document/dochub.aspects Диаграммы аспектов]]
+***** [[https://plantuml.com/ PlantUML]]
+**** [[@document/dochub.radar Технологический радар]]
+*** [[@document/dochub.docs Пользовательские артефакты]]
+**** [[@document/dochub.docs#plantuml Диаграммы, схемы и т.д.]]
+***** [[@document/dochub.plantuml PlantUML]]
+****** [[@document/dochub.templates Шаблоны]]
+***** [[@document/dochub.mermaid Mermaid]]
+****** [[@document/dochub.templates Шаблоны]]
+**** [[@document/dochub.docs#markdown Документы]]
+***** [[https://ru.wikipedia.org/wiki/Markdown Markdown]]
+****** [[@document/dochub.docs#markdown Встраивание объектов DocHub]]
+****** [[@document/dochub.templates#markdown Шаблоны]]
+**** [[@document/dochub.tables Таблицы]]
+**** [[@document/dochub.network Сети]]
+**** [[@document/dochub.docs#swagger Контракты]]
+***** [[https://swagger.io/ Swagger]]
+****** [[@document/dochub.templates#openapi Шаблоны]]
+***** [[https://www.asyncapi.com/ AsyncAPI]]
+****** [[@document/dochub.templates#asyncapi Шаблоны]]
+** Расширяемая метамодель
+*** [[@document/dochub.inheritance Наследование]]
+*** [[@document/dochub.entities Кастомные сущности]]
+@endmindmap
