@@ -1,7 +1,8 @@
 docs:
     dochub.welcome:
         type: markdown
-        source: introduction.md # https://dochub.info/documentation/docs/conception/introduction.md
+        toc: false
+        source: introduction.md
     dochub.conception:
         location: DocHub
         description: Концепция
