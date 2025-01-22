@@ -9,3 +9,8 @@ imports:
   - arch/root.yaml
   - entities/root.yaml
   - poc/root.yaml
+docs:
+    dochub.welcome:
+        type: markdown
+        toc: false
+        source: README.md
