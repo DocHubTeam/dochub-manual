@@ -1,1 +1,1 @@
-# Documentation for the DocHub architectural platform
+# Документация для архитектурной платформы DocHub
