@@ -1,4 +1,4 @@
-# Documentation for the DocHub architectural platform
+# DocHub - architectural platform for organizations
 
 DocHub was created in response to the current challenges in enterprise architecture and IT systems management.
 At its core is the concept of "Architecture as Code," which allows architectural artifacts—such as documents
