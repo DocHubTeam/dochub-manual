@@ -14,7 +14,7 @@ docs:
           - dochub
           - dochub.front
     dochub.ide:
-      location: DocHub/Руководство/IDE
+      location: DocHub/IDE
       description: Описывает возможности редактирования в DocHub
       type: markdown
       source: ide.md
