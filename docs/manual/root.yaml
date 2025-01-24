@@ -3,6 +3,7 @@ imports:
   - rules/root.yaml
   - plugins/root.yaml
   - functions/root.yaml
+  - ide/root.yaml
 docs:
     dochub.manual:
         location: DocHub/Руководство
@@ -12,6 +13,11 @@ docs:
         subjects:
           - dochub
           - dochub.front
+    dochub.ide:
+      location: DocHub/Руководство/IDE
+      description: Описывает возможности редактирования в DocHub
+      type: markdown
+      source: ide.md
     dochub.imports:
       location: DocHub/Руководство/Импорт
       description: Импорт манифестов
