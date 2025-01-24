@@ -5,4 +5,3 @@ At its core is the concept of "Architecture as Code," which allows architectural
 and diagrams—to be treated as applications compiled from architecture code. This feature opens up the possibility
 of applying proven software development practices for effective architecture management and seamless
 integration into the production development process.
-_
