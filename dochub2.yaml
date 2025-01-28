@@ -4,4 +4,3 @@ $package:
     version: 1.0.0
     dependencies:
       dochub: ">=4.0.0"
-# Hello!
