@@ -1,16 +1,6 @@
 $package:
-  dochub-doc-v2:
-    version: 4.0.0
-imports:
-  # Подключаем слой управления прикладной архитектурой CEAF
-  - github:DocHubTeam/ceaf-app:master@dochub.yaml    
-  # Подключаем документацию
-  - docs/root.yaml
-  - arch/root.yaml
-  - entities/root.yaml
-  - poc/root.yaml
-docs:
-    dochub.welcome:
-        type: markdown
-        toc: false
-        source: README.md
+  github-DocHubTeam-dochub-manual:
+    name: github-DocHubTeam-dochub-manual
+    version: 1.0.0
+    dependencies:
+      dochub: ">=4.0.0"
