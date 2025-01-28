@@ -1,0 +1,6 @@
+$package:
+  github-DocHubTeam-dochub-manual:
+    name: github-DocHubTeam-dochub-manual
+    version: 1.0.0
+    dependencies:
+      dochub: ">=4.0.0"
