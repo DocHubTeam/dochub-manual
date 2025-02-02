@@ -20,13 +20,13 @@ entities: # Сущности расширенной матемодели
             )};
             $append([{
                 "icon": *.icon,                                                 /* Получаем иконку */
-                "link": "/entities/interactions/tree",                           /* Ссылка на форму представления tree (дерево дерево объектов "interactions") */
+                "link": "/entities/interactions/tree",                          /* Ссылка на форму представления tree (дерево дерево объектов "interactions") */
                 "location": "Взаимодействия"                                    /* Расположение в меню */
             }
             ],
                 [$.interactions.$spread().{
                     "icon": *.icon,                                             /* Получаем иконку */
-                    "link": "/entities/interactions/blank?id=" & $keys()[0],     /* Формируем ссылку на бланк документ */
+                    "link": "/entities/interactions/blank?id=" & $keys()[0],    /* Формируем ссылку на бланк документ */
                     "location": $makeLocation($keys()[0])                       /* Формируем расположение в меню */
                 }][location]
             );
@@ -72,7 +72,7 @@ entities: # Сущности расширенной матемодели
                     )];
                 )  
             blank:              # Карточка объекта
-              type: plantuml  # Тип представления
+              type: plantuml    # Тип представления
               title: Диаграмма взаимодействия
               template: templates/blank.puml
               params:         
