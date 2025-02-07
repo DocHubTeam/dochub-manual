@@ -177,6 +177,37 @@ docs:
           - first_name
           - last_name
           - address  
+  dochub.forms.examples.summ:
+    description: Форма суммирования значений полей     
+    type: form                                        
+    source:                                           
+      schema:                                         
+        type: object
+        title: Форма суммирования полей
+        properties:
+          a:
+            title: Число "a"
+            type: number
+          b:
+            title: Число "b"
+            type: number
+          result:
+            title: Результат
+            type: number
+        required:
+          - a
+          - b
+        order:
+          - result
+          - b
+          - a
+      triggers:
+        change: >
+          (
+            $merge([$form, {
+              "result": $form.a + $form.b
+            }])
+          )
   dochub.wysiwyg.example:
     description: Пример WYSIWYG документа
     autor: R.Piontik
