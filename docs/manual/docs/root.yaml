@@ -8,7 +8,7 @@ docs:
   dochub.docs:
     location: DocHub/Руководство/Документы
     description: Документы
-    autor: R.Piontik        # Кастомное поле - Автор документа
+    autor: R.Piontik # Кастомное поле - Автор документа
     type: markdown
     subjects:
       - dochub.front
@@ -156,11 +156,14 @@ docs:
   # *****************************************  
   #            Примеры документов
   # ***************************************** 
-  dochub.forms.examples.simple:                       # Идентификатор документа
-    description: Простой пример динамической формы    # Описание документа
-    type: form                                        # Тип определяющий динамическую форму
-    source:                                           # Данные для построения формы
-      schema:                                         # JSONSchema
+  dochub.forms.examples.simple:
+    # Идентификатор документа
+    description: Простой пример динамической формы # Описание документа
+    type: form # Тип определяющий динамическую форму
+    source:
+      # Данные для построения формы
+      schema:
+        # JSONSchema
         type: object
         title: Тестовая форма заполнения данных о пользователе
         properties:
@@ -176,12 +179,12 @@ docs:
         required:
           - first_name
           - last_name
-          - address  
+          - address
   dochub.forms.examples.summ:
-    description: Форма суммирования значений полей     
+    description: Форма суммирования значений полей
     type: form
-    source:                                           
-      schema:                                         
+    source:
+      schema:
         type: object
         title: Форма суммирования значения полей
         properties:
@@ -216,8 +219,8 @@ docs:
   dochub.forms.examples.validate:
     description: Форма суммирования значений полей с расширенным контролем
     type: form
-    source:                                           
-      schema:                                         
+    source:
+      schema:
         type: object
         title: Форма суммирования значения полей с расширенным контролем
         properties:
@@ -238,6 +241,64 @@ docs:
           - a
           - result
       triggers:
+        validate: >
+          (
+            /* Получаем данные формы */
+            $data := $params."$form".data;
+            /* Проверяем на четность "a" */
+            $not($floor($data.result / 2) = $data.result / 2) ? {
+              /* Сообщение для пользователя */
+              "message": 'Некорректный результат вычисления! Он должен быть четным.',
+              /* Путь к полю, где возникла ошибка */
+              "path": ['result']
+            }
+          )
+        change: >
+          (
+            /* Получаем данные формы */
+            $data := $params."$form".data;
+            /* Производим вычисления и возвращаем данные для заполнения формы */
+            {
+              "a": $data.a,
+              "b": $data.b,
+              "result": $data.a + $data.b
+            }
+          )
+  dochub.forms.examples.post:
+    description: Форма с сохранением результата вычисления
+    type: form
+    source:
+      schema:
+        type: object
+        title: Форма с сохранением результата вычисления
+        properties:
+          a:
+            title: Число "a"
+            type: number
+          b:
+            title: Число "b"
+            type: number
+          result:
+            title: Результат
+            type: number
+        required:
+          - a
+          - b
+        order:
+          - b
+          - a
+          - result
+      triggers:
+        post: >
+          (
+            /* Создаем структуру для вставки данных*/
+            {
+              /* Определяем точку сохранения */
+              "path": ["docs", "dochub.forms.examples.post", "data"],
+              /* Данные для сохранения */
+              "data": $params."$form".data
+            }
+          )
         validate: >
           (
             /* Получаем данные формы */
@@ -285,29 +346,36 @@ docs:
     location: DocHub/Руководство/Документы/SmartAnts/01 Простой пример
     description: Простой пример использования SmartAnts
     autor: R.Piontik
-    type: smartants           # Тип документа
-    source:                   # Задаем константные данные для генерации диаграммы
-      header:                 # Заголовок диаграммы
-        title: Авторизация    # Текст заголовка
-        style:                # Стили заголовка
+    type: smartants # Тип документа
+    source:
+      # Задаем константные данные для генерации диаграммы
+      header:
+        # Заголовок диаграммы
+        title: Авторизация # Текст заголовка
+        style:
+          # Стили заголовка
           color: "#fbaaaa"
           font-size: 22px
           font-weight: 800
-      config:                 # Конфигурируем расположение элементов на диаграмме 
-        distance: 120         # Дистанция между элементами
-        trackWidth: 24        # Ширина дорожек (треков)
-      nodes:                  # Определяем элементы диаграммы
-        system:               # Идентификатор элемента. Определяем иерархию при отображении диаграммы
-          title: Система      # Название компонента
-          symbol: system      # Символ (примитив) которым будет представлен элемент на диаграмме
+      config:
+        # Конфигурируем расположение элементов на диаграмме 
+        distance: 120 # Дистанция между элементами
+        trackWidth: 24 # Ширина дорожек (треков)
+      nodes:
+        # Определяем элементы диаграммы
+        system:
+          # Идентификатор элемента. Определяем иерархию при отображении диаграммы
+          title: Система # Название компонента
+          symbol: system # Символ (примитив) которым будет представлен элемент на диаграмме
         user:
           title: Пользователь
           symbol: user
-      links:                    # Связи между компонентами
-        - from: user            # Откуда будет прокладываться маршрут
-          to: system            # Куда
+      links:
+        # Связи между компонентами
+        - from: user # Откуда будет прокладываться маршрут
+          to: system # Куда
           title: Логин и пароль # Описание маршрута
-          style: "->"           # Направление маршрута <- / -> / <->
+          style: "->" # Направление маршрута <- / -> / <->
           link: "/docs/dochub.swagger" # Ссылка перехода при клике на надпись
         - from: system
           to: user
@@ -317,56 +385,59 @@ docs:
   dochub.smartants.examples.colors:
     description: Пример раскрашивания линий
     autor: R.Piontik
-    type: smartants           
-    source:                   
-      config:                 
-        distance: 120         
-        trackWidth: 24        
-      nodes:                  
-        system:               
-          title: Система      
-          symbol: system      
+    type: smartants
+    source:
+      config:
+        distance: 120
+        trackWidth: 24
+      nodes:
+        system:
+          title: Система
+          symbol: system
         user:
           title: Пользователь
           symbol: user
-      links:                    
-        - from: user            
-          to: system            
-          title: Логин и пароль 
-          style: "-[#ff0000]->"         # Указывается цвет линии через RGB
+      links:
+        - from: user
+          to: system
+          title: Логин и пароль
+          style: "-[#ff0000]->" # Указывается цвет линии через RGB
           link: "/docs/dochub.swagger"
         - from: system
           to: user
           title: JWT токен
-          style: "-[#green]->"         # Указывается цвет линии через alias
+          style: "-[#green]->" # Указывается цвет линии через alias
           link: "/docs/dochub.swagger"
   dochub.smartants.examples.domains:
     location: DocHub/Руководство/Документы/SmartAnts/02 Домены
     description: Пример диаграммы SmartAnts с доменами
     autor: R.Piontik
-    type: smartants           
-    source:                   
-      config:                 
-        distance: 120         
-        trackWidth: 24        
+    type: smartants
+    source:
+      config:
+        distance: 120
+        trackWidth: 24
       nodes:
-        inside:                      # Определим домены 
+        inside:
+          # Определим домены 
           title: Внутренняя среда
-          background: lightgreen     # добавим фон области
-          opacity: 0.3               # и прозрачность фона
+          background: lightgreen # добавим фон области
+          opacity: 0.3 # и прозрачность фона
         outside:
           title: Внешняя среда
-        inside.system:               # Добавим в идентификатор принадлежность к домену "inside"
-          title: Система      
-          symbol: system      
-        outside.user:                # Аналогично для пользователя добавим домен "outside"
+        inside.system:
+          # Добавим в идентификатор принадлежность к домену "inside"
+          title: Система
+          symbol: system
+        outside.user:
+          # Аналогично для пользователя добавим домен "outside"
           title: Пользователь
           symbol: user
-      links:                    
-        - from: outside.user         # Модифицируем идентификаторы в связях      
-          to: inside.system            
-          title: Логин и пароль 
-          style: "->"           
+      links:
+        - from: outside.user # Модифицируем идентификаторы в связях      
+          to: inside.system
+          title: Логин и пароль
+          style: "->"
         - from: inside.system
           to: outside.user
           title: JWT токен
@@ -375,7 +446,7 @@ docs:
     location: DocHub/Руководство/Документы/SmartAnts/03 Сложная диаграмма
     description: Сложная диаграмма SmartAnts
     autor: R.Piontik
-    type: smartants           
+    type: smartants
     source: examples/sa-complex.yaml
   dochub.smartants.examples.complex.hideboundaries:
     description: Сложная диаграмма SmartAnts. Скрыты заголовки областей
@@ -393,31 +464,31 @@ docs:
     location: DocHub/Руководство/Документы/SmartAnts/04 Cвязи объединенных объектов
     description: Диаграмма взаимодействий объединенных объектов SmartAnts
     autor: R.Piontik
-    type: smartants           
+    type: smartants
     source: examples/sa-group.yaml
   dochub.smartants.examples.gravity:
-    location: DocHub/Руководство/Документы/SmartAnts/05 Gravity points 
+    location: DocHub/Руководство/Документы/SmartAnts/05 Gravity points
     description: Размещение объектов объединенных в группы
     autor: R.Piontik
-    type: smartants           
+    type: smartants
     source: examples/sa-gravity.yaml
   dochub.smartants.examples.anim:
     location: DocHub/Руководство/Документы/SmartAnts/06 Анимация
     description: Анимированная диаграмма SmartAnts
     autor: R.Piontik
-    type: smartants           
+    type: smartants
     source: examples/sa-anim.yaml
   dochub.smartants.examples.custom_symbol:
     location: DocHub/Руководство/Документы/SmartAnts/07 Собственные символы
     description: Кастомные символы SmartAnts
     autor: R.Piontik
-    type: smartants           
+    type: smartants
     source: examples/sa-symbol.yaml
   dochub.smartants.examples.simple_query:
     location: DocHub/Руководство/Документы/SmartAnts/08 Простой запрос к данным
     description: Простой запрос к данным в SmartAnts
     autor: R.Piontik
-    type: smartants           
+    type: smartants
     source: >
       (
         /* Определяем фильтр для компонентов архитектуры */
@@ -445,7 +516,7 @@ docs:
     location: DocHub/Руководство/Документы/SmartAnts/09 Сложный запрос к данным
     description: Сложный запрос к данным в SmartAnts
     autor: R.Piontik
-    type: smartants           
+    type: smartants
     source: examples/sa-query.jsonata
   dochub.example.pml:
     type: PlantUML
@@ -555,13 +626,14 @@ docs:
     type: bpmnjs
     source: examples/pizza-collaboration.xml
   dochub.example.bpmn.analyse:
-    origin: examples/pizza-collaboration.xml  # Указываем источником оригинальных данных XML файл
-    source: >                                 # Обрабатываем XML
+    origin: examples/pizza-collaboration.xml # Указываем источником оригинальных данных XML файл
+    source: > # Обрабатываем XML
       (
           [$."semantic:definitions".*."semantic:task"."$"]
       )
-    type: table                               # Тип документа "таблица"
-    headers:                                  # Заголовки таблицы
+    type: table # Тип документа "таблица"
+    headers:
+      # Заголовки таблицы
       - value: id
         text: Идентификатор
         sortable: true
@@ -575,16 +647,18 @@ docs:
   # *****************************************  
   #                 Шаблоны
   # *****************************************  
-  dochub.templates:         # Пример генерации markdown документа по шаблону
+  dochub.templates:
+    # Пример генерации markdown документа по шаблону
     location: DocHub/Руководство/Документы/Шаблоны
     description: Шаблоны
     type: markdown
-    autor: R.Piontik        # Кастомное поле - Автор документа
-    approvers:              # Кастомное поле - список согласующих
+    autor: R.Piontik # Кастомное поле - Автор документа
+    approvers:
+      # Кастомное поле - список согласующих
       - P.Petrov
       - S.Sidorov
       - N.Nikolaev
-    source: >               # JSONata запрос для формирования параметров шаблона
+    source: > # JSONata запрос для формирования параметров шаблона
       (
         {
           "id": $self._id,              /* Идентификатор документа */
@@ -602,8 +676,9 @@ docs:
       - dochub.front.spa
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
-    template: templates.md  # Шаблон документа
-  dochub.templates.pml: # Пример генерации PlantUML документа по шаблону
+    template: templates.md # Шаблон документа
+  dochub.templates.pml:
+    # Пример генерации PlantUML документа по шаблону
     type: PlantUML
     source: >
       (
@@ -619,7 +694,8 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     template: examples/template.puml
-  dochub.templates.asyncapi: # Пример генерации AsyncAPI документа по шаблону
+  dochub.templates.asyncapi:
+    # Пример генерации AsyncAPI документа по шаблону
     type: AsyncAPI
     source: >
       (
@@ -632,7 +708,8 @@ docs:
         }
       )
     template: examples/asyncapi_template.json
-  dochub.templates.openapi: # Пример генерации OpenAPI документа по шаблону
+  dochub.templates.openapi:
+    # Пример генерации OpenAPI документа по шаблону
     type: OpenAPI
     source: >
       (
