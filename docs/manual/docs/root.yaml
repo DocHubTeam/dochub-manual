@@ -179,11 +179,11 @@ docs:
           - address  
   dochub.forms.examples.summ:
     description: Форма суммирования значений полей     
-    type: form                                        
+    type: form
     source:                                           
       schema:                                         
         type: object
-        title: Форма суммирования полей
+        title: Форма суммирования значения полей
         properties:
           a:
             title: Число "a"
@@ -198,15 +198,68 @@ docs:
           - a
           - b
         order:
-          - result
           - b
           - a
+          - result
       triggers:
         change: >
           (
-            $merge([$form, {
-              "result": $form.a + $form.b
-            }])
+            /* Получаем данные формы */
+            $data := $params."$form".data;
+            /* Производим вычисления и возвращаем данные для заполнения формы */
+            {
+              "a": $data.a,
+              "b": $data.b,
+              "result": $data.a + $data.b
+            }
+          )
+  dochub.forms.examples.validate:
+    description: Форма суммирования значений полей с расширенным контролем
+    type: form
+    source:                                           
+      schema:                                         
+        type: object
+        title: Форма суммирования значения полей с расширенным контролем
+        properties:
+          a:
+            title: Число "a"
+            type: number
+          b:
+            title: Число "b"
+            type: number
+          result:
+            title: Результат
+            type: number
+        required:
+          - a
+          - b
+        order:
+          - b
+          - a
+          - result
+      triggers:
+        validate: >
+          (
+            /* Получаем данные формы */
+            $data := $params."$form".data;
+            /* Проверяем на четность "a" */
+            $not($floor($data.result / 2) = $data.result / 2) ? {
+              /* Сообщение для пользователя */
+              "message": 'Некорректный результат вычисления! Он должен быть четным.',
+              /* Путь к полю, где возникла ошибка */
+              "path": ['result']
+            }
+          )
+        change: >
+          (
+            /* Получаем данные формы */
+            $data := $params."$form".data;
+            /* Производим вычисления и возвращаем данные для заполнения формы */
+            {
+              "a": $data.a,
+              "b": $data.b,
+              "result": $data.a + $data.b
+            }
           )
   dochub.wysiwyg.example:
     description: Пример WYSIWYG документа
