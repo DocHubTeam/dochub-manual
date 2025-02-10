@@ -1,0 +1,23 @@
+docs:
+  dochub.forms.examples.table.simple:
+    description: Табличная форма
+    location: DocHub/Руководство/Документы/Формы/06 Таблица
+    type: form
+    source:
+      schema:
+        title: Табличная форма
+        type: array               # Для вывода таблицы нужно указать тип "array"
+        items:
+          type: object
+          properties:
+            firstname:
+              title: Имя
+              type: string
+            lastname:
+              title: Фамилия
+              type: string
+            birthday:
+              title: Дата рождения
+              type: string
+              format: "date"
+              

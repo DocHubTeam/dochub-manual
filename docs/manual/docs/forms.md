@@ -153,7 +153,22 @@ docs/dochub.forms.examples.restore_data
 
 Формы могут содержать таблицы. Для декларации табличной части формы необходимо использовать тип **array** в JSONSchema.
 
+```code-frame
+docs/dochub.forms.examples.table.simple
+```
 
-
+Пример работы формы:
+![Табличная форма](@document/dochub.forms.examples.table.simple)
 
 [Далее](/docs/dochub.entities)
+
+## Форматы полей
+
+Для удобного пользовательского ввода существует несколько типов полей. Тип поля определяется свойством **format** в JSONSchema.
+
+```code-frame
+docs/dochub.forms.examples.fields
+```
+
+Пример работы полей:
+![Виды полей формы](@document/dochub.forms.examples.fields)

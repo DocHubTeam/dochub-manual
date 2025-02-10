@@ -1,0 +1,55 @@
+docs:
+  dochub.forms.examples.fields:
+    description: Табличная форма
+    location: DocHub/Руководство/Документы/Формы/07 Типы полей
+    type: form
+    source:
+      schema:
+        title: Доступные типы полей
+        type: object
+        properties:
+          string:
+            title: Строка
+            type: string
+            cols: 4         # Ограничиваем размер поля 4 из 12 ячейками
+          number:
+            title: Число
+            type: number
+            cols: 4
+          enum:
+            title: Список
+            type: string
+            enum:
+              - Выбор 1
+              - Выбор 2
+            cols: 4
+          boolean:
+            title: Флаг
+            type: boolean
+            cols: 4
+          date:
+            title: Дата
+            type: string
+            format: "date"
+            cols: 4            
+          date_time:
+            title: Дата и время
+            type: string
+            format: "date-time"
+            cols: 4
+          textarea:
+            title: Многострочный текст
+            type: string
+            format: "textarea"
+            cols: 4            
+          label:
+            title: Свободный текст выводимый на форму
+            type: string
+            format: "label"
+            cols: 4
+          alert:
+            title: Сообщение
+            type: string
+            format: "alert-success"     # Доступны: success/info/warning/error
+            cols: 4
+          
