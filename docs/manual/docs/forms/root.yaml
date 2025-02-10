@@ -1,0 +1,6 @@
+imports:
+  - simple.yaml
+  - sum.yaml
+  - validate.yaml
+  - post.yaml
+  - restore.yaml

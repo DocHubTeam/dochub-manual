@@ -149,5 +149,11 @@ docs/dochub.forms.examples.restore_data
 ![Форма сложения чисел с восстановлением значений](@document/dochub.forms.examples.restore_data)
 
 
+## Табличные формы
+
+Формы могут содержать таблицы. Для декларации табличной части формы необходимо использовать тип **array** в JSONSchema.
+
+
+
 
 [Далее](/docs/dochub.entities)

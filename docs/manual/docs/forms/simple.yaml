@@ -1,0 +1,23 @@
+docs:
+  dochub.forms.examples.simple:                       # Идентификатор документа
+    description: Простоя пример динамической формы    # Описание документа
+    location: DocHub/Руководство/Документы/Формы/01 Простой пример
+    type: form                                        # Тип определяющий динамическую форму
+    source:                                           # Данные для построения формы
+      schema:                                         # JSONSchema для генерации формы
+        type: object
+        title: Тестовая форма заполнения данных о пользователе
+        properties:
+          first_name:
+            title: Имя
+            type: string
+          last_name:
+            title: Фамилия
+            type: string
+          address:
+            title: Адрес регистрации
+            type: string
+        required:
+          - first_name
+          - last_name
+          - address

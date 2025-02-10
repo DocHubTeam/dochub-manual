@@ -1,0 +1,38 @@
+docs:
+  dochub.forms.examples.summ:
+    description: Пример формы суммирования значений полей
+    location: DocHub/Руководство/Документы/Формы/02 Калькулятор
+    type: form
+    source:
+      schema:
+        type: object
+        title: Суммированbt значений
+        properties:
+          a:
+            title: Число "a"
+            type: number
+          b:
+            title: Число "b"
+            type: number
+          result:
+            title: Результат
+            type: number
+        required:
+          - a
+          - b
+        order:
+          - b
+          - a
+          - result
+      triggers:
+        change: >
+          (
+            /* Получаем данные формы */
+            $data := $params."$form".data;
+            /* Производим вычисления и возвращаем данные для заполнения формы */
+            {
+              "a": $data.a,
+              "b": $data.b,
+              "result": $data.a + $data.b
+            }
+          )
