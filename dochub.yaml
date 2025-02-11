@@ -4,6 +4,8 @@ $package:
 imports:
   # Подключаем слой управления прикладной архитектурой CEAF
   - github:DocHubTeam/ceaf-app:master@dochub.yaml    
+  # Подключаем словарь терминов и определений
+  - dictionary.yaml
   # Подключаем документацию
   - docs/root.yaml
   - arch/root.yaml
