@@ -6,7 +6,7 @@ docs:
     source:
       schema:
         type: object
-        title: Суммированbt значений
+        title: Суммирование значений
         properties:
           a:
             title: Число "a"

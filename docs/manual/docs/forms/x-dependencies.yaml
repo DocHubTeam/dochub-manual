@@ -1,12 +1,12 @@
 docs:
-  dochub.forms.examples.fields.x_dataset:
-    description: Поле с вычисляемым набором значений
-    location: DocHub/Руководство/Документы/Формы/08 Источник данных поля
+  dochub.forms.examples.fields.x_dependencies:
+    description: Форма с зависимыми полями
+    location: DocHub/Руководство/Документы/Формы/09 Зависимость полей
     type: form
     source:
       schema:
         type: object
-        title: Форма демонстрирует работу поля с источником данных для подсказок
+        title: Форма демонстрирует работу зависимостей полей
         properties:
           componentId:
             title: Идентификатор архитектурного компонента
@@ -18,6 +18,18 @@ docs:
                   /* Возвращает все ключи объекта components в виде массива */
                   [components.$keys()]
                 )
+          aspectId:
+            title: Идентификатор архитектурного аспекта
+            type: string
+            # Определяем зависимость от поля componentId
+            x-dependencies: [componentId]
+            x-dataset:
+              # Здесь готовим данные для выбора пользователя
+              source: >
+                (
+                  /* Возвращает все ключи объекта aspects в виде массива */
+                  [aspects.$keys()]
+                )
         required:
           - componentId
       triggers:
@@ -27,10 +39,11 @@ docs:
             /* Получаем данные формы */
             $data := $params."$form".data;
             /* Проверяем, что указанный идентификатор действительно есть в DataLake */
-            $not($exists($lookup(components, $data.componentId))) ? {
+            $result := $not($exists($lookup(components, $data.componentId))) ? {
               /* Сообщение для пользователя */
               "message": 'Нет архитектурного компонента с указанным идентификатором!',
               /* Путь к полю, где возникла ошибка */
               "path": ['componentId']
             };
+            $result;
           )
