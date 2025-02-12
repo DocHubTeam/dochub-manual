@@ -27,8 +27,9 @@ docs:
               # Здесь готовим данные для выбора пользователя
               source: >
                 (
+                  $data := $params."$form".data;
                   /* Возвращает все ключи объекта aspects в виде массива */
-                  [aspects.$keys()]
+                  [$lookup(components, $data.componentId).aspects]
                 )
         required:
           - componentId
