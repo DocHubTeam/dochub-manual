@@ -1,0 +1,37 @@
+docs:
+  dochub.forms.examples.fields.x_dataset:
+    description: Поле с вычисляемым набором значений
+    location: DocHub/Руководство/Документы/Формы/08 Источник данных поля
+    type: form
+    source:
+      schema:
+        type: object
+        title: Форма демонстрирует работу поля с источником данных для подсказок
+        properties:
+          componentId:
+            title: Идентификатор архитектурного компонента
+            type: string
+            x-dataset:
+              # Здесь готовим данные для выбора пользователя
+              source: >
+                (
+                  /* Возвращает все ключи объекта components в виде массива */
+                  [components.$keys()]
+                )
+        required:
+          - componentId
+      triggers:
+        # Для финального контроля проверяем корректность заполненного поля
+        validate: >
+          (
+            /* Получаем данные формы */
+            $data := $params."$form".data;
+            /* Проверяем, что указанный идентификатор действительно есть в DataLake */
+            $result := $not($exists($lookup(components, $data.componentId))) ? {
+              /* Сообщение для пользователя */
+              "message": 'Нет архитектурного компонента с указанным идентификатором!',
+              /* Путь к полю, где возникла ошибка */
+              "path": ['componentId']
+            };
+            $result;
+          )

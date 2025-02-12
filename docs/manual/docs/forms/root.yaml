@@ -6,3 +6,4 @@ imports:
   - restore.yaml
   - table.yaml
   - fields.yaml
+  - x-dataset.yaml

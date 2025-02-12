@@ -51,10 +51,4 @@ docs:
             title: Сообщение
             type: string
             format: "alert:success"     # Доступны: success/info/warning/error
-            x-cols: 4
-          collection_key:
-            title: Ключ коллекции
-            type: string
-            format: "collection-key:components" 
-            x-cols: 4
-          
+            x-cols: 4          
