@@ -1,7 +1,7 @@
 docs:
   dochub.forms.examples.fields.x_dependencies:
     description: Форма с зависимыми полями
-    location: DocHub/Руководство/Документы/Формы/09 Зависимость полей
+    location: DocHub/Руководство/Формы/09 Зависимость полей
     type: form
     source:
       schema:
