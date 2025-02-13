@@ -20,7 +20,7 @@ docs:
         required:
           - a
           - b
-        order:
+        x-order:
           - b
           - a
           - result
