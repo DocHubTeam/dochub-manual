@@ -1,0 +1,19 @@
+#**************************************************************
+#                       Расширяемая метамодель
+#**************************************************************
+docs:
+    dochub.flex_metamodel.introduction:
+      location: /DocHub/Метамодель
+      description: Введение в адаптивную метамодель
+      type: markdown
+      source: introduction.md
+    dochub.flex_metamodel.entities:
+      location: /DocHub/Метамодель/Сущности
+      description: Сущность
+      type: markdown
+      source: entities.md
+    dochub.flex_metamodel.bundle:
+      location: /DocHub/Метамодель/Расширения
+      description: Расширение метамодели
+      type: markdown
+      source: bundle.md

@@ -4,6 +4,7 @@ imports:
   - plugins/root.yaml
   - functions/root.yaml
   - ide/root.yaml
+  - metamodel/root.yaml
 docs:
     dochub.manual:
         location: DocHub/Руководство
@@ -27,7 +28,7 @@ docs:
         - dochub.front.spa
       source: imports.md
     dochub.components:
-      location: DocHub/Руководство/Компоненты
+      location: /DocHub/Метамодель/Компоненты
       description: Компоненты
       type: markdown
       subjects:
@@ -101,33 +102,6 @@ docs:
         - dochub.front.spa
         - dochub.front.spa.dataset
       source: jsonata.md
-#**************************************************************
-#                       Сущности
-#**************************************************************
-    dochub.flex_metamodel:
-      location: DocHub/Руководство/Адаптивная метамодель
-      description: Адаптивная метамодель
-      type: markdown
-      subjects:
-        - dochub.front
-        - dochub.front.spa
-      source: entities/intro.md
-    dochub.flex_metamodel.entities:
-      location: DocHub/Руководство/Адаптивная метамодель/Entity
-      description: Сущность
-      type: markdown
-      subjects:
-        - dochub.front
-        - dochub.front.spa
-      source: entities/entities.md
-    dochub.flex_metamodel.bundle:
-      location: DocHub/Руководство/Адаптивная метамодель/Metamodel Bundle
-      description: Расширение метамодели
-      type: markdown
-      subjects:
-        - dochub.front
-        - dochub.front.spa
-      source: entities/bundle.md
     dochub.deployment:
       icon: settings
       location: DocHub/Развертывание

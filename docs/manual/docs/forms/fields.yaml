@@ -1,7 +1,7 @@
 docs:
   dochub.forms.examples.fields:
     description: Табличная форма
-    location: DocHub/Руководство/Формы/07 Типы полей
+    location: /DocHub/Формы/07 Типы полей
     type: form
     source:
       schema:

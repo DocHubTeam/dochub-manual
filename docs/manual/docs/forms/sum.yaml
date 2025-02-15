@@ -1,7 +1,7 @@
 docs:
   dochub.forms.examples.summ:
     description: Пример формы суммирования значений полей
-    location: DocHub/Руководство/Формы/02 Калькулятор
+    location: /DocHub/Формы/02 Калькулятор
     type: form
     source:
       schema:

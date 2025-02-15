@@ -1,6 +1,6 @@
 docs:
     dochub.conception:
-        location: DocHub
+        location: /DocHub
         description: Концепция
         type: markdown
         source: introduction.md

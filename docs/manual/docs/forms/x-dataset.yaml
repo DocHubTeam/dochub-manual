@@ -1,7 +1,7 @@
 docs:
   dochub.forms.examples.fields.x_dataset:
     description: Поле с вычисляемым набором значений
-    location: DocHub/Руководство/Формы/08 Источник данных поля
+    location: /DocHub/Формы/08 Источник данных поля
     type: form
     source:
       schema:

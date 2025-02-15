@@ -149,7 +149,7 @@ docs:
       - dochub.front.spa.blank.doc
     source: wysiwyg.md
   dochub.forms:
-    location: DocHub/Руководство/Документы/Формы
+    location: /DocHub/Формы
     description: Динамические формы
     autor: R.Piontik
     type: markdown
