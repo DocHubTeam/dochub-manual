@@ -16,3 +16,8 @@ docs:
         type: markdown
         toc: false
         source: README.md
+    dochub.introduction:
+      location: /DocHub
+      description: DocHub
+      type: markdown
+      source: README.md   

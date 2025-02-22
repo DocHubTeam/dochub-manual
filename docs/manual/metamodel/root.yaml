@@ -12,8 +12,10 @@ docs:
       description: Сущность
       type: markdown
       source: entities.md
+      order: 1
     dochub.flex_metamodel.bundle:
       location: /DocHub/Метамодель/Расширения
       description: Расширение метамодели
       type: markdown
       source: bundle.md
+      order: 10
