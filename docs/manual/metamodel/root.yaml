@@ -14,9 +14,11 @@ docs:
       type: markdown
       source: entities.md
       order: 1
+      icon: mdi-biohazard
     dochub.flex_metamodel.bundle:
       location: /DocHub/Метамодель/Мета-пакеты
       description: Мета-пакеты
       type: markdown
       source: bundle.md
       order: 30
+      icon: mdi-package-variant

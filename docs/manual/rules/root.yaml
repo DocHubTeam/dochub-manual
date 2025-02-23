@@ -5,22 +5,19 @@ docs:
         type: markdown
         source: rules.md
         order: 20
-        subjects:
-          - dochub
+        icon: mdi-ruler-square-compass
     dochub.rules.validators:
         location: /DocHub/Метамодель/Правила/Валидаторы
         description: Валидаторы
         type: markdown
         source: validators.md
-        subjects:
-          - dochub
+        icon: mdi-check-all
     dochub.rules.exceptions:
         location: /DocHub/Метамодель/Правила/Исключения
         description: Исключения
         type: markdown
         source: exceptions.md
-        subjects:
-          - dochub
+        icon: mdi-hand-okay
     dochub.standards.examples.expert:
         description: Пример стандарта
         type: markdown
