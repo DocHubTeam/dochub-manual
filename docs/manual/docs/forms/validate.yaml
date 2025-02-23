@@ -1,8 +1,9 @@
 docs:
   dochub.forms.examples.validate:
     description: Форма суммирования значений полей с расширенным контролем
-    location: /DocHub/Формы/03 Проверка
+    location: /DocHub/Формы/Проверка
     type: form
+    order: 30
     source:
       schema:
         type: object

@@ -7,6 +7,7 @@ docs:
       description: Введение в адаптивную метамодель
       type: markdown
       source: introduction.md
+      icon: mdi-webpack
     dochub.flex_metamodel.entities:
       location: /DocHub/Метамодель/Сущности
       description: Сущность
@@ -14,8 +15,8 @@ docs:
       source: entities.md
       order: 1
     dochub.flex_metamodel.bundle:
-      location: /DocHub/Метамодель/Расширения
-      description: Расширение метамодели
+      location: /DocHub/Метамодель/Мета-пакеты
+      description: Мета-пакеты
       type: markdown
       source: bundle.md
-      order: 10
+      order: 30

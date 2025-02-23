@@ -1,8 +1,9 @@
 docs:
   dochub.forms.examples.post:
     description: Форма с сохранением результата вычисления
-    location: /DocHub/Формы/04 Сохранение
+    location: /DocHub/Формы/Сохранение
     type: form
+    order: 40
     source:
       schema:
         type: object

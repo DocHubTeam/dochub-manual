@@ -1,20 +1,21 @@
 docs:
     dochub.rules:
-        location: DocHub/Руководство/Правила
+        location: /DocHub/Метамодель/Правила
         description: Подсистема контроля
         type: markdown
         source: rules.md
+        order: 20
         subjects:
           - dochub
     dochub.rules.validators:
-        location: DocHub/Руководство/Правила/Валидаторы
+        location: /DocHub/Метамодель/Правила/Валидаторы
         description: Валидаторы
         type: markdown
         source: validators.md
         subjects:
           - dochub
     dochub.rules.exceptions:
-        location: DocHub/Руководство/Правила/Исключения
+        location: /DocHub/Метамодель/Правила/Исключения
         description: Исключения
         type: markdown
         source: exceptions.md

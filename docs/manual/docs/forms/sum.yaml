@@ -1,8 +1,9 @@
 docs:
   dochub.forms.examples.summ:
     description: Пример формы суммирования значений полей
-    location: /DocHub/Формы/02 Калькулятор
+    location: /DocHub/Формы/Калькулятор
     type: form
+    order: 20
     source:
       schema:
         type: object

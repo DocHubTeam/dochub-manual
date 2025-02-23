@@ -1,8 +1,9 @@
 docs:
   dochub.forms.examples.fields:
     description: Табличная форма
-    location: /DocHub/Формы/07 Типы полей
+    location: /DocHub/Формы/Типы полей
     type: form
+    order: 70
     source:
       schema:
         title: Доступные типы полей

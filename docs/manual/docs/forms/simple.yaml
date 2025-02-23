@@ -1,8 +1,9 @@
 docs:
   dochub.forms.examples.simple:                       # Идентификатор документа
     description: Простоя пример динамической формы    # Описание документа
-    location: /DocHub/Формы/01 Простой пример
+    location: /DocHub/Формы/Простой пример            # Размещение в меню
     type: form                                        # Тип определяющий динамическую форму
+    order: 1                                          # Порядок сортировки в меню
     source:                                           # Данные для построения формы
       schema:                                         # JSONSchema для генерации формы
         type: object

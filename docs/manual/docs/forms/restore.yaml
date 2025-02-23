@@ -1,8 +1,9 @@
 docs:
   dochub.forms.examples.restore_data:
     description: Форма с восстановлением результата вычисления
-    location: /DocHub/Формы/05 Восстановление
+    location: /DocHub/Формы/Восстановление
     type: form
+    order: 50
     source:
       schema:
         type: object

@@ -1,8 +1,9 @@
 docs:
   dochub.forms.examples.fields.x_dependencies:
     description: Форма с зависимыми полями
-    location: /DocHub/Формы/09 Зависимость полей
+    location: /DocHub/Формы/Зависимость полей
     type: form
+    order: 90
     source:
       schema:
         type: object
