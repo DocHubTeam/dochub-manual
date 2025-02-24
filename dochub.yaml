@@ -1,6 +1,19 @@
+# Признак мета-пакета
 $package:
-  dochub-doc-v2:
-    version: 4.0.0
+  # Идентификатор мета-пакета
+  dochub_manual:
+    # Человеко-читаемое название мета-пакета
+    name: Документация DocHub
+    # Поставщик
+    vendor: R.Piontik
+    # Описание
+    description: Полная документация на DocHub с примерами использования
+    # Версия 
+    version: 4.0.0      
+    # От каких мета-пакетов зависит данный
+    dependencies:
+      # Указывается зависимость от мета-пакета ceaf.app версии 1.0.0 или выше
+      ceaf.app: ">=1.0.0"   
 imports:
   # Подключаем слой управления прикладной архитектурой CEAF
   - github:DocHubTeam/ceaf-app:master@dochub.yaml    
