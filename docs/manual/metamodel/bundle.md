@@ -33,7 +33,7 @@
 
 Пример корневого манифеста мета-пакета докумнтации на DocHub: 
 ```code-frame
-$package/dochub_manual
+$package/dochub-manual
 ```
 
 Полностью репозиторий мета-пакета документации можно изучить [здесь](https://github.com/DocHubTeam/dochub-manual).
