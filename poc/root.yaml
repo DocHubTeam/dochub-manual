@@ -29,11 +29,6 @@ docs:
 #    type: vscode
 #    extension: asciidoc
 #    source: asciidoc.adoc
-  test2sdff:
-    type: markdown
-    location: /Проба/проба2
-    title: Test
-    source: auto-1727427889049-1506.md
   dochub.intro.user_tour:
     type: markdown
     location: /Обучение/Добро пожаловать в DocHub!
