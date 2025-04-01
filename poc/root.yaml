@@ -1,22 +1,22 @@
 # Ранние PoC новых видов документов
 docs:
-  dochub.vscode:
-    location: /VSCode
-    title: Плагины VSCode
-    type: markdown
-    source: vscode.md
-  dochub.vscode.excalidraw:
-    location: /VSCode/excalidraw
-    title: Моя стартовая страница
-    type: vscode
-    extension: excalidraw
-    source: test.excalidraw
-  dochub.vscode.drawio:
-    location: /VSCode/drawio
-    title: Моя стартовая страница
-    type: vscode
-    extension: drawio
-    source: test.drawio
+#  dochub.vscode:
+#    location: /VSCode
+#    title: Плагины VSCode
+#    type: markdown
+#    source: vscode.md
+#  dochub.vscode.excalidraw:
+#    location: /VSCode/excalidraw
+#    title: Моя стартовая страница
+#    type: vscode
+#    extension: excalidraw
+#    source: test.excalidraw
+#  dochub.vscode.drawio:
+#    location: /VSCode/drawio
+#    title: Моя стартовая страница
+#    type: vscode
+#    extension: drawio
+#    source: test.drawio
 #  dochub.vscode.latex:
 #    location: /VSCode/LaTex
 #    title: Моя стартовая страница
@@ -29,8 +29,8 @@ docs:
 #    type: vscode
 #    extension: asciidoc
 #    source: asciidoc.adoc
-  dochub.intro.user_tour:
-    type: markdown
-    location: /Обучение/Добро пожаловать в DocHub!
-    title: Добро пожаловать в DocHub!
-    source: auto-1727449086430-8811.md
+#  dochub.intro.user_tour:
+#    type: markdown
+#    location: /Обучение/Добро пожаловать в DocHub!
+#    title: Добро пожаловать в DocHub!
+#    source: auto-1727449086430-8811.md

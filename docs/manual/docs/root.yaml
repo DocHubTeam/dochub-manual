@@ -71,6 +71,16 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: asyncapi.md
+  dochub.drawio:
+    location: DocHub/Руководство/Документы/Draw.io
+    description: Draw.io
+    type: drawio
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: examples/test.drawio
   dochub.swagger:
     location: DocHub/Руководство/Документы/Swagger
     description: Swagger
