@@ -55,25 +55,25 @@ docs:
         - dochub.front.spa.blank
         - dochub.front.spa.blank.aspect
       source: aspects.md
-    dochub.technologies:
-      location: DocHub/Руководство/Технологии
-      description: Технологии
-      type: markdown
-      subjects:
-        - dochub.front
-        - dochub.front.spa
-      source: technologies.md
-    dochub.radar:
-      location: DocHub/Руководство/Техрадар
-      description: Техрадар
-      type: markdown
-      subjects:
-        - dochub.radar
-        - dochub.front
-        - dochub.front.spa
-        - dochub.front.spa.blank
-        - dochub.front.spa.blank.radar
-      source: radar.md
+#    dochub.technologies:
+#      location: DocHub/Руководство/Технологии
+#      description: Технологии
+#      type: markdown
+#      subjects:
+#        - dochub.front
+#        - dochub.front.spa
+#      source: technologies.md
+#    dochub.radar:
+#      location: DocHub/Руководство/Техрадар
+#      description: Техрадар
+#      type: markdown
+#      subjects:
+#        - dochub.radar
+#        - dochub.front
+#        - dochub.front.spa
+#        - dochub.front.spa.blank
+#        - dochub.front.spa.blank.radar
+#      source: radar.md
     dochub.datasets:
       location: DocHub/Руководство/Источники данных
       description: Источники данных

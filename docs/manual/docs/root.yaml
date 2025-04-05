@@ -39,17 +39,17 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: plantuml.md
-  dochub.mermaid:
-    location: DocHub/Руководство/Документы/Mermaid
-    description: Mermaid
-    autor: R.Piontik
-    type: markdown
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: mermaid.md
+#  dochub.mermaid:
+#    location: DocHub/Руководство/Документы/Mermaid
+#    description: Mermaid
+#    autor: R.Piontik
+#    type: markdown
+#    subjects:
+#      - dochub.front
+#      - dochub.front.spa
+#      - dochub.front.spa.blank
+#      - dochub.front.spa.blank.doc
+#    source: mermaid.md
   dochub.network:
     location: DocHub/Руководство/Документы/Network
     description: Network
@@ -114,17 +114,17 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: smartants.md
-  dochub.charts:
-    location: DocHub/Руководство/Документы/Диаграммы
-    description: Диаграммы
-    author: V.Markin
-    type: markdown
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: charts.md
+#  dochub.charts:
+#    location: DocHub/Руководство/Документы/Диаграммы
+#    description: Диаграммы
+#    author: V.Markin
+#    type: markdown
+#    subjects:
+#      - dochub.front
+#      - dochub.front.spa
+#      - dochub.front.spa.blank
+#      - dochub.front.spa.blank.doc
+#    source: charts.md
   dochub.bpmn:
     location: DocHub/Руководство/Документы/BPMN
     description: BPMN диаграммы
