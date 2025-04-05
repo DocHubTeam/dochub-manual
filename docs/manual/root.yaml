@@ -101,14 +101,14 @@ docs:
         - dochub.front.spa
         - dochub.front.spa.dataset
       source: jsonata.md
-    dochub.deployment:
-      icon: settings
-      location: DocHub/Развертывание
-      description: Развертывание
-      type: markdown
-      subjects:
-        - dochub.front
-      source: config/deployment.md
+#    dochub.deployment:
+#      icon: settings
+#      location: DocHub/Развертывание
+#      description: Развертывание
+#      type: markdown
+#      subjects:
+#        - dochub.front
+#      source: config/deployment.md
     dochub.context.source:
       type: plantuml
       source: context_source.puml

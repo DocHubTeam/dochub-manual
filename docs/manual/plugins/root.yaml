@@ -1,9 +1,10 @@
 # Источник - https://gitlab.smoletgroup.ru/branch/blob/root.yaml
-datasets:
+# Отключаем на время рефакторинга документации
+_datasets:
   dochub.plugins.example:
     origin: dochub.components
     source: examples/test.jsonata
-docs:
+_docs:
   dochub.plugins.intro:
     location: DocHub/Руководство/Плагины
     type: markdown
