@@ -22,6 +22,7 @@ imports:
   - arch/root.yaml
   - entities/root.yaml
   - poc/root.yaml
+  
 docs:
   # Страница документации по умолчанию
   dochub.welcome:          # Предопределенный идентификатор
@@ -33,3 +34,4 @@ docs:
     description: DocHub
     type: markdown
     source: README.md   
+

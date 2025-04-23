@@ -4,6 +4,7 @@ imports:
   - functions/root.yaml
   - ide/root.yaml
   - metamodel/root.yaml
+  - dochuber/root.yaml
 docs:
     dochub.manual:
         location: DocHub/Руководство

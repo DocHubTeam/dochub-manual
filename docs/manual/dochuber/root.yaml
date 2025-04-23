@@ -1,0 +1,10 @@
+imports: 
+  - config.yaml
+  
+docs: 
+  dochub.dochuber:
+    title: Dochuber
+    location: /DocHub/Dochuber
+    type: markdown
+    source: introduction.md
+    icon: mdi-face-agent
