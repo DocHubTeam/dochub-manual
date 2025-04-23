@@ -117,4 +117,5 @@ datasets:
 ![Зависимый источник](@document/dochub.table.multi_dependencies)
 
 
+# Магическое свойство $base
 
