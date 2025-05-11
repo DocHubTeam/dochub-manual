@@ -3,7 +3,8 @@ imports:
   
 docs: 
   dochub.dochuber:
-    title: Dochuber
+    title: AI-ассистент Dochuber
+    description: Общие сведения о Dochuber, примеры его применения и конфигурирования
     location: /DocHub/Dochuber
     type: markdown
     source: introduction.md

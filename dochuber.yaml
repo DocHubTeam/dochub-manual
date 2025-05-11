@@ -1,0 +1,54 @@
+# Конфигурация AI-ассистента Dochuber
+dochuber: 
+  # Декларирование знаний доступных агенту
+  knowledge: 
+    # Документация по Dochuber
+    dochub.dochuber:
+      description: Информация о работе AI-ассистента Dochuber
+      type: generator
+      source: >
+        (
+          docs~>$dochuberFetchDocs("^dochub\\.dochuber(\\..*)*");
+        )
+        
+# Вспомогательные функции для работы Dochuber
+functions: 
+  dochuberFetchDocs:
+    title: Генерирует ресурсные ссылки на документы по указанному шаблону ID для Dochuber
+    params: 
+      - alias: docs
+        type: object
+        title: Коллекция документов
+      - alias: pattern
+        title: Шаблон отбора документов
+    result: 
+      type: array
+      title: Массив ресурсных ссылок для Dochuber
+      items:
+        type: object
+        properties:
+          type: 
+            title: Тип всегда равен "resource"
+            type: string
+            enum: [resource]
+          source:
+            title: Содержимое документа
+            type: string
+    code: >
+      (
+        /* Выбираем нужные документы по шаблону */
+        $regexp := $eval("/" & pattern & "/");
+        [docs.$keys()[$match($, $regexp)].(
+          /* Получаем документ из Data Lake */
+          $doc := $lookup($$.docs, $);
+          /* Формируем ссылку на ресурс */
+          {
+            "type": "resource",
+            "description": $doc.description,
+            "title":  $doc.title,
+            "$base": "/docs/" & $ & "/source",
+            "source": $doc.source
+          }
+        )]
+      )
+        

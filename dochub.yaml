@@ -17,6 +17,8 @@ $package:
 imports:
   # Подключаем словарь терминов и определений
   - dictionary.yaml
+  # Подключаем конфигурацию AI-ассистента Dochuber
+  - dochuber.yaml
   # Подключаем документацию
   - docs/root.yaml
   - arch/root.yaml
