@@ -18,20 +18,49 @@ dochuber:
             & "Технологический стек определен стандартом №1."
           )
   knowledge:        # Декларирование знаний доступных агенту
+    # Пример интеграции с Интернет-ресурсом (внешнее знание)
+    dochub.integrations.time:
+      # Тип генератора - ресурс
+      type: resource
+      description: Точное время в Москве. Необходимо обновлять это знание при каждом обращении к нему.
+      # Ссылка на внешний ресурс, который в формате JSON возвращает информацию о точном времени
+      # Сервис allorigins.win используется для решения проблемы CORS
+      source: https://api.allorigins.win/raw?url=https://tools.aimylogic.com/api/now?tz=Europe/Moscow&format=dd/MM/yyyy
     dochub.integrations.weather:  # Пример нетипичных знаний - Погода в России
-        # Тип генератора указываем явно
+        # Тип генератора - ссылка ресурс
         type: resource
         # Краткое описание знания
         description: Информация о погоде в России
         # Ссылка на внешний ресурс, который в формате RSS возвращает информацию о погоде
-        # Используем сервис allorigins.win для решения проблемы CORS
+        # Сервис allorigins.win используется для решения проблемы CORS
         source: https://api.allorigins.win/raw?url=http://news.hmn.ru/news_out/xml/news_rss.xml  
-    dochub.statistic.docs:
-      type: dataset         # Тип генератора. По умолчанию dataset
-      description: Информация о количестве документов в Data Lake
-      source: >             # Генерируем информацию с использование JSONata о количестве документов в репозитории
+    dochub.statistics:
+      # Тип генератора - вычисляемый источник данных 
+      type: dataset
+      # Краткое описание знания
+      description: >
+        Статистика по архитектурному репозиторию. Содержит сведения о количестве документов,
+        архитектурных компонентов, аспектов, контекстов 
+      # Запрос к Data Lake для получения статистики
+      source: >
         (
-          "Всего документов в текущем репозитории: " & $count(docs.*) & "шт"
+          {
+            "Количество документов": $count(docs.*),
+            "Количество архитектурных компонентов": $count(components.*),
+            "Количество архитектурных аспектов": $count(aspects.*),
+            "Количество архитектурных контекстов": $count(contexts.*)
+          }
+        )
+    dochub.docs:
+      # Тип генератора - фабрика генераторов
+      type: generator
+      # Краткое общая информация о генераторе
+      description: Содержит полную документацию по DocHub
+      # Формируется массив генераторов для документов отобранных по шаблону идентификатора
+      source: >
+        (
+          /* Для удобства создана функция отбора документов по regex */
+          docs~>$dochuberFetchDocs("^dochub(\\..+)*$");
         )
     # Документация по Dochuber
     dochub.dochuber:
@@ -49,17 +78,20 @@ dochuber:
 functions: 
   dochuberFetchDocs:
     title: Генерирует ресурсные ссылки на документы по указанному шаблону ID для Dochuber
+    # Декларируем требуемые параметры в формате массива JSONSchema
     params: 
       - alias: docs
         type: object
         title: Коллекция документов
       - alias: pattern
         title: Шаблон отбора документов
+    # Декларируем схему данных результата успешного выполнения функции
     result: 
       type: array
       title: Массив ресурсных ссылок для Dochuber
       items:
         type: object
+        required: [type, description, source]
         properties:
           type: 
             title: Тип всегда равен "resource"
@@ -67,7 +99,17 @@ functions:
             enum: [resource]
           source:
             title: Содержимое документа
+            type: [string, object, array]
+          title:
+            title: Название генератора
             type: string
+          $base:
+            title: Путь в DataLake от которого разрешаются относительные пути
+            type: string
+          description:
+            title: Краткое описание знания
+            type: string
+    # Код функции на JSONata
     code: >
       (
         /* Выбираем нужные документы по шаблону */
@@ -75,14 +117,21 @@ functions:
         [docs.$keys()[$match($, $regexp)].(
           /* Получаем документ из Data Lake */
           $doc := $lookup($$.docs, $);
+          /* Если названия документа нет, то берем его ID */
+          $title := $doc.title ? $doc.title : $;
           /* Формируем ссылку на ресурс */
-          {
+          $doc.source 
+          /* Если ресурс определен - все в порядке */
+          ? { 
             "type": "resource",
-            "description": $doc.description,
+            /* Если у документа нет описания, используем название */
+            "description": $doc.description ? $doc.description : $title,
             "title":  $doc.title,
             "$base": "/docs/" & $ & "/source",
             "source": $doc.source
           }
+          /* Иначе выводим в лог ошибку */
+          : $log("Can not inlude doc " & $ & " to knowledge! Not found source.", "error"); 
         )]
       )
         
