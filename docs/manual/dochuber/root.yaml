@@ -1,10 +1,9 @@
-imports: 
-  - config.yaml
-  
 docs: 
   dochub.dochuber:
     title: AI-ассистент Dochuber
-    description: Общие сведения о Dochuber, примеры его применения и конфигурирования
+    description: >
+      Информация о Dochuber. Примеры его применения, интеграции и конфигурирования.
+      Здесь содержится полная информация и ссылки на примеры кода для его настройки.
     location: /DocHub/Dochuber
     type: markdown
     source: introduction.md
