@@ -1,0 +1,7 @@
+# Корневой манифест для документации по презентациям
+docs: 
+  dochub.presentations:
+    title: Презентации DocHub
+    description: Общая информация о презентациях в DocHub
+    location: /DocHub/Презентации
+    source: inroduction.md
