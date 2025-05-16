@@ -1,4 +1,4 @@
-# Конфигурация AI-ассистента Dochuber
+# Конфигурация AI-ассистента Dochuber!
 dochuber: 
   contexts:         # Конфигурации контекстов
     global:         
