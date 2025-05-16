@@ -1,5 +1,4 @@
 imports:
-  - presentations/root.yaml
   - docs/root.yaml
   - plugins/root.yaml
   - functions/root.yaml
