@@ -25,7 +25,7 @@ DocHub поддерживает библиотеку bpmn.io в качестве
 ![BPMN](@document/dochub.presentations.bpmn.example.pizza)
 
 
-Манифест:
+Код DocHub:
 ```code-frame
 /docs/dochub.presentations.bpmn.example.pizza
 ```

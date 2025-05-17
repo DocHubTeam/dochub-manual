@@ -16,6 +16,22 @@ docs:
     source: presentations.md
     
   # *****************************************  
+  #                  PlantUML
+  # *****************************************  
+  dochub.presentations.plantuml:
+    location: /DocHub/Презентации/PlantUML
+    description: Использование PlantUML в DocHub
+    autor: R.Piontik
+    type: markdown
+    source: plantuml.md
+    icon: mdi-code-braces
+  dochub.presentations.plantuml.example:
+    #Раскомментируй, если нужно, чтобы документ стал доступен из меню 
+    #location: /DocHub/Презентации/PlantUML/Пример
+    type: PlantUML
+    source: examples/example.puml
+  
+  # *****************************************  
   #                  BPMN
   # *****************************************  
   dochub.presentations.bpmn:
@@ -31,6 +47,8 @@ docs:
     type: bpmnjs
     source: examples/pizza-collaboration.xml
   dochub.presentations.bpmn.example.analyse:
+    #Раскомментируй, если нужно, чтобы документ стал доступен из меню 
+    #location: /DocHub/Презентации/BPMN/Пример анализа
     origin: examples/pizza-collaboration.xml # Указываем источником оригинальных данных XML файл
     source: > # Обрабатываем XML
       (
@@ -60,6 +78,8 @@ docs:
     source: wysiwyg.md
     icon: mdi-file-document-outline
   dochub.presentations.wysiwyg.example:
+    #Раскомментируй, если нужно, чтобы документ стал доступен из меню 
+    #location: /DocHub/Презентации/WYSIWYG/Пример
     description: Пример WYSIWYG документа
     autor: R.Piontik
     type: jodit
@@ -74,12 +94,18 @@ docs:
     autor: R.Piontik
     type: markdown
     source: excalidraw.md
+    icon: mdi-picture-in-picture-bottom-right
   dochub.presentations.excalidraw.example:
+    #Раскомментируй, если нужно, чтобы документ стал доступен из меню 
+    #location: /DocHub/Презентации/Excalidraw/Пример
     description: Пример Excalidraw диаграммы в DocHub
     autor: R.Piontik
     type: excalidraw
     source: examples/excalidraw.excalidraw
   
+
+
+
   
   # *****************************************  
   #        Руководство по документам 
@@ -106,17 +132,6 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: markdown.md
-  dochub.plantuml:
-    location: DocHub/Руководство/Документы/PlantUML
-    description: PlantUML
-    autor: R.Piontik
-    type: markdown
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: plantuml.md
 #  dochub.mermaid:
 #    location: DocHub/Руководство/Документы/Mermaid
 #    description: Mermaid
@@ -379,14 +394,6 @@ docs:
     autor: R.Piontik
     type: smartants
     source: examples/sa-query.jsonata
-  dochub.example.pml:
-    type: PlantUML
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: examples/example.puml
   dochub.example.mermaid:
     type: Mermaid
     subjects:
