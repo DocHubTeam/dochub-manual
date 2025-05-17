@@ -38,3 +38,4 @@ docs:
     description: Общие сведения о DocHub, его возможностях, принципах и проблемах, которые он решает
     type: markdown
     source: README.md
+    icon: mdi-tools

@@ -4,7 +4,7 @@ docs:
     description: >
       Информация о Dochuber. Примеры его применения, интеграции и конфигурирования.
       Здесь содержится полная информация и ссылки на примеры кода для его настройки.
-    location: /DocHub/Dochuber
+    location: /DocHub/AI Dochuber
     type: markdown
     source: introduction.md
     icon: mdi-face-agent
