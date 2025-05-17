@@ -16,6 +16,21 @@ docs:
     source: presentations.md
 
   # *****************************************  
+  #                  Draw.io
+  # *****************************************  
+  dochub.presentations.drawio:
+    location: /DocHub/Презентации/Draw.io
+    description: Использование презентаций Draw.io в DocHub
+    type: markdown
+    source: drawio.md
+    icon: mdi-picture-in-picture-bottom-right 
+  dochub.presentations.drawio.example:
+    #Раскомментируй, если нужно, чтобы документ стал доступен из меню 
+    #location: /DocHub/Презентации/Draw.io/Пример
+    type: drawio
+    source: examples/test.drawio
+  
+  # *****************************************  
   #                  Swagger
   # *****************************************  
   dochub.presentations.swagger:
@@ -40,7 +55,7 @@ docs:
     autor: R.Piontik
     type: markdown
     source: markdown.md
-    icon: mdi-code-brackets
+    icon: mdi-file-document-outline
   
   # *****************************************  
   #                  PlantUML
@@ -180,16 +195,6 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: asyncapi.md
-  dochub.drawio:
-    location: DocHub/Руководство/Документы/Draw.io
-    description: Draw.io
-    type: drawio
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: examples/test.drawio
   dochub.tables:
     location: DocHub/Руководство/Документы/Таблицы
     description: Таблицы
