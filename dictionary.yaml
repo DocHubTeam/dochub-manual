@@ -45,4 +45,11 @@ dictionary:
       удобно устанавливать, обновлять и удалять необходимые пакеты, а также стимулирует развитие архитектурной
       функции в открытом сообществе через обмен знаниями и опытом.
     link: "https://github.com/DocHubTeam/archpkg"
+  CEAF:
+    forms: [ceaf, CEAF]
+    definition: >
+      Community Enterprise Architecture Framework (CEAF) - открытый и развиваемый сообществом экспертов-практиков
+      архитектурный фреймворк в своей основе использующий подход "Архитектура как код".
+    link: "https://github.com/DocHubTeam/ceaf-core-original"
+    
   
