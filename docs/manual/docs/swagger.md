@@ -3,21 +3,13 @@
 Предназначен для описания контрактов. Пример контракта с официального
 [сайта](https://swagger.io/docs/specification/basic-structure/).
 
-Пример описания манифеста документа:
-```yaml
-  ...
-  dochub.example.swgr:
-    type: OpenAPI
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: examples/example.yaml
-  ...
+Код DocHub:
+```code-frame
+/docs/dochub.presentations.swagger.example
 ```
 
 Пример тела документа: 
+
 ```yaml
 openapi: 3.0.0
 info:
@@ -45,8 +37,8 @@ paths:
                   type: string
 ```
 
-Представление документа в DocHub:
 
-![Swagger контракт](@document/dochub.example.swgr)
+Представление документа:
+![Swagger контракт](@document/dochub.presentations.swagger.example)
 
 

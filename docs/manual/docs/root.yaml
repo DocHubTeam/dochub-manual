@@ -16,11 +16,27 @@ docs:
     source: presentations.md
 
   # *****************************************  
+  #                  Swagger
+  # *****************************************  
+  dochub.presentations.swagger:
+    location: /DocHub/Презентации/Swagger
+    description: Использование презентаций Swagger в DocHub
+    autor: R.Piontik
+    type: markdown
+    source: swagger.md
+    icon: mdi-cloud-braces
+  dochub.presentations.swagger.example:
+    #Раскомментируй, если нужно, чтобы документ стал доступен из меню 
+    #location: /DocHub/Презентации/Swagger/Пример
+    type: OpenAPI
+    source: examples/example.yaml
+  
+  # *****************************************  
   #                  Markdown
   # *****************************************  
   dochub.presentations.markdown:
     location: /DocHub/Презентации/Markdown
-    description: Markdown
+    description: Использование презентаций Markdown в DocHub
     autor: R.Piontik
     type: markdown
     source: markdown.md
@@ -31,7 +47,7 @@ docs:
   # *****************************************  
   dochub.presentations.plantuml:
     location: /DocHub/Презентации/PlantUML
-    description: Использование PlantUML в DocHub
+    description: Использование презентаций PlantUML в DocHub
     autor: R.Piontik
     type: markdown
     source: plantuml.md
@@ -174,17 +190,6 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: examples/test.drawio
-  dochub.swagger:
-    location: DocHub/Руководство/Документы/Swagger
-    description: Swagger
-    autor: R.Piontik
-    type: markdown
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: swagger.md
   dochub.tables:
     location: DocHub/Руководство/Документы/Таблицы
     description: Таблицы
@@ -469,14 +474,6 @@ docs:
           }
         }
       )
-  dochub.example.swgr:
-    type: OpenAPI
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: examples/example.yaml
   dochub.example.asyncapi:
     type: AsyncApi
     subjects:
