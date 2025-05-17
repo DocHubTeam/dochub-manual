@@ -14,7 +14,18 @@ docs:
     autor: R.Piontik
     type: markdown
     source: presentations.md
-    
+
+  # *****************************************  
+  #                  Markdown
+  # *****************************************  
+  dochub.presentations.markdown:
+    location: /DocHub/Презентации/Markdown
+    description: Markdown
+    autor: R.Piontik
+    type: markdown
+    source: markdown.md
+    icon: mdi-code-brackets
+  
   # *****************************************  
   #                  PlantUML
   # *****************************************  
@@ -121,17 +132,6 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: docs.md
-  dochub.markdown:
-    location: DocHub/Руководство/Документы/Markdown
-    description: Markdown
-    autor: R.Piontik
-    type: markdown
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: markdown.md
 #  dochub.mermaid:
 #    location: DocHub/Руководство/Документы/Mermaid
 #    description: Mermaid
