@@ -4,6 +4,20 @@ imports:
   - forms/root.yaml
 docs:
   # *****************************************  
+  #        Обновленное руководство
+  # *****************************************  
+  dochub.presentations:
+    location: /DocHub/Презентации
+    description: Базовая поставка презентаций
+    icon: mdi-presentation
+    autor: R.Piontik
+    type: markdown
+    source: presentations.md
+
+
+
+  
+  # *****************************************  
   #        Руководство по документам 
   # *****************************************  
   dochub.docs:
@@ -158,13 +172,6 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: wysiwyg.md
-  dochub.forms:
-    location: /DocHub/Формы
-    description: Динамические формы
-    icon: mdi-form-dropdown
-    autor: R.Piontik
-    type: markdown
-    source: forms.md
   # *****************************************  
   #            Примеры документов
   # ***************************************** 

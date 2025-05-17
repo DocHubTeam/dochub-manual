@@ -1,7 +1,7 @@
 docs:
   dochub.forms.examples.table.simple:
     description: Табличная форма
-    location: /DocHub/Формы/Таблица
+    location: /DocHub/Презентации/Формы/Таблица
     type: form
     order: 60
     source:

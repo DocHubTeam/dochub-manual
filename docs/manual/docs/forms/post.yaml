@@ -1,7 +1,7 @@
 docs:
   dochub.forms.examples.post:
     description: Форма с сохранением результата вычисления
-    location: /DocHub/Формы/Сохранение
+    location: /DocHub/Презентации/Формы/Сохранение
     type: form
     order: 40
     source:
