@@ -16,7 +16,7 @@ docs:
     source: presentations.md
     
   # *****************************************  
-  #                   BPMN
+  #                  BPMN
   # *****************************************  
   dochub.presentations.bpmn:
     location: /DocHub/Презентации/BPMN
@@ -49,8 +49,21 @@ docs:
         sortable: true
         align: left
 
-
-
+  # *****************************************  
+  #                 WYSIWYG 
+  # *****************************************  
+  dochub.presentations.wysiwyg:
+    location: /DocHub/Презентации/WYSIWYG
+    description: Использование документов WYSIWYG в DocHub
+    autor: R.Piontik
+    type: markdown
+    source: wysiwyg.md
+    icon: mdi-file-document-outline
+  dochub.presentations.wysiwyg.example:
+    description: Пример WYSIWYG документа
+    autor: R.Piontik
+    type: jodit
+    source: examples/wysiwyg.wyg
 
   
   # *****************************************  
@@ -186,30 +199,9 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: excalidraw.md
-  dochub.wysiwyg:
-    location: DocHub/Руководство/Документы/WYSIWYG
-    description: WYSIWYG
-    autor: R.Piontik
-    type: markdown
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: wysiwyg.md
   # *****************************************  
   #            Примеры документов
   # ***************************************** 
-  dochub.wysiwyg.example:
-    description: Пример WYSIWYG документа
-    autor: R.Piontik
-    type: jodit
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: examples/wysiwyg.wyg
   dochub.excalidraw.example:
     description: Пример Excalidraw диаграммы
     autor: R.Piontik
