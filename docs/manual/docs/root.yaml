@@ -2,6 +2,7 @@ imports:
   - examples/table.yaml
   - examples/charts.yaml
   - forms/root.yaml
+  - ide/root.yaml
 docs:
   # *****************************************  
   #        Обновленное руководство
@@ -13,9 +14,20 @@ docs:
     autor: R.Piontik
     type: markdown
     source: presentations.md
-
-
-
+    
+  # *****************************************  
+  #                   BPMN
+  # *****************************************  
+  dochub.presentations.bpmn:
+    location: /DocHub/Презентации/BPMN
+    description: BPMN диаграммы
+    autor: R.Piontik
+    icon: mdi-blur
+    type: markdown
+    source: bpmn.md
+  dochub.presentations.bpmn.example.pizza:
+    type: bpmnjs
+    source: examples/pizza-collaboration.xml
   
   # *****************************************  
   #        Руководство по документам 
@@ -139,17 +151,6 @@ docs:
 #      - dochub.front.spa.blank
 #      - dochub.front.spa.blank.doc
 #    source: charts.md
-  dochub.bpmn:
-    location: DocHub/Руководство/Документы/BPMN
-    description: BPMN диаграммы
-    autor: R.Piontik
-    type: markdown
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: bpmn.md
   dochub.excalidraw:
     location: DocHub/Руководство/Документы/Excalidraw
     description: Excalidraw диаграммы
@@ -470,14 +471,6 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: examples/asyncapi.yaml
-  dochub.example.bpmn:
-    location: DocHub/Руководство/Документы/BPMN/Простой пример
-    type: bpmnjs
-    source: examples/bpmn.xml
-  dochub.example.bpmn.full:
-    location: DocHub/Руководство/Документы/BPMN/Расширенный пример
-    type: bpmnjs
-    source: examples/pizza-collaboration.xml
   dochub.example.bpmn.analyse:
     origin: examples/pizza-collaboration.xml # Указываем источником оригинальных данных XML файл
     source: > # Обрабатываем XML

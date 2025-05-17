@@ -1,0 +1,24 @@
+docs: 
+  dochub.ide:
+    location: /DocHub/IDE
+    description: Общие сведения о DocHubIDE
+    autor: R.Piontik
+    type: markdown
+    source: introduction.md
+    icon: mdi-pencil-ruler
+  dochub.ide.modes:
+    order: 1
+    location: /DocHub/IDE/Режимы#Режимы
+    description: Информация о режимах функционирования DocHub и их переключение
+    autor: R.Piontik
+    type: markdown
+    icon: mdi-puzzle-edit
+    source: introduction.md
+  dochub.ide.transactions:
+    order: 10
+    location: /DocHub/IDE/Транзакции#Транзакции
+    description: Информация о работе транзакций в DocHubIDE
+    autor: R.Piontik
+    type: markdown
+    icon: mdi-upload
+    source: introduction.md

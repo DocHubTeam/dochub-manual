@@ -1,6 +1,0 @@
-docs:
-    dochub.ide.transactions:
-      location: DocHub/IDE/Транзакции
-      description: Управление транзакциями внесения изменений в репозиторий
-      type: markdown
-      source: transactions.md

@@ -14,11 +14,6 @@ docs:
         subjects:
           - dochub
           - dochub.front
-    dochub.ide:
-      location: DocHub/IDE
-      description: Описывает возможности редактирования в DocHub
-      type: markdown
-      source: ide.md
     dochub.imports:
       location: DocHub/Руководство/Импорт
       description: Импорт манифестов
