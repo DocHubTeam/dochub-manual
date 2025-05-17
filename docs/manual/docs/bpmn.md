@@ -22,12 +22,12 @@ DocHub поддерживает библиотеку bpmn.io в качестве
 
 ## Пример рендеринга процесса из xml файла
 Представление:
-![BPMN](@document/dochub.example.bpmn.full)
+![BPMN](@document/dochub.presentations.bpmn.example.pizza)
 
 
 Манифест:
 ```code-frame
-/docs/dochub.example.bpmn
+/docs/dochub.presentations.bpmn.example.pizza
 ```
 ## Дизайн процессов
 
@@ -41,9 +41,9 @@ DocHub может обращаться к описанию процессов в
 в процессе и выразим его в таблице.
 
 ```code-frame
-/docs/dochub.example.bpmn.analyse
+/docs/dochub.presentations.bpmn.example.analyse
 ```
 
 Результат:
 
-![BPMN](@document/dochub.example.bpmn.analyse)
+![BPMN](@document/dochub.presentations.bpmn.example.analyse)

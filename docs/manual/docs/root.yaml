@@ -5,7 +5,7 @@ imports:
   - ide/root.yaml
 docs:
   # *****************************************  
-  #        Обновленное руководство
+  #  Обновленное руководство по презентациям
   # *****************************************  
   dochub.presentations:
     location: /DocHub/Презентации
@@ -26,8 +26,32 @@ docs:
     type: markdown
     source: bpmn.md
   dochub.presentations.bpmn.example.pizza:
+    #Раскомментируй, если нужно, чтобы документ стал доступен из меню 
+    #location: /DocHub/Презентации/BPMN/Пример
     type: bpmnjs
     source: examples/pizza-collaboration.xml
+  dochub.presentations.bpmn.example.analyse:
+    origin: examples/pizza-collaboration.xml # Указываем источником оригинальных данных XML файл
+    source: > # Обрабатываем XML
+      (
+          [$."semantic:definitions".*."semantic:task"."$"]
+      )
+    type: table # Тип документа "таблица"
+    headers:
+      # Заголовки таблицы
+      - value: id
+        text: Идентификатор
+        sortable: true
+        align: left
+        width: 20%
+      - value: name
+        text: Название задачи
+        sortable: true
+        align: left
+
+
+
+
   
   # *****************************************  
   #        Руководство по документам 
@@ -471,24 +495,6 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: examples/asyncapi.yaml
-  dochub.example.bpmn.analyse:
-    origin: examples/pizza-collaboration.xml # Указываем источником оригинальных данных XML файл
-    source: > # Обрабатываем XML
-      (
-          [$."semantic:definitions".*."semantic:task"."$"]
-      )
-    type: table # Тип документа "таблица"
-    headers:
-      # Заголовки таблицы
-      - value: id
-        text: Идентификатор
-        sortable: true
-        align: left
-        width: 20%
-      - value: name
-        text: Название задачи
-        sortable: true
-        align: left
 
   # *****************************************  
   #                 Шаблоны
