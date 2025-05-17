@@ -161,6 +161,7 @@ docs:
   dochub.forms:
     location: /DocHub/Формы
     description: Динамические формы
+    icon: mdi-form-dropdown
     autor: R.Piontik
     type: markdown
     source: forms.md
