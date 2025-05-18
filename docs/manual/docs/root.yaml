@@ -225,7 +225,20 @@ docs:
     #location: /DocHub/Презентации/Draw.io/Пример
     type: drawio
     source: examples/test.drawio
-  
+  # *****************************************  
+  #                  AsyncAPI
+  # *****************************************  
+  dochub.presentations.asyncapi:
+    location: /DocHub/Презентации/AsyncApi
+    description: Markdown
+    type: markdown
+    source: asyncapi.md
+    icon: mdi-cloud-braces
+  dochub.presentations.asyncapi.example:
+    #Раскомментируй, если нужно, чтобы документ стал доступен из меню 
+    #location: /DocHub/Презентации/AsyncApi/Пример
+    type: AsyncApi
+    source: examples/asyncapi.yaml
   # *****************************************  
   #                  Swagger
   # *****************************************  
@@ -389,16 +402,6 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: network.md
-  dochub.asyncapi:
-    location: DocHub/Руководство/Документы/AsyncApi
-    description: Markdown
-    type: markdown
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: asyncapi.md
 #  dochub.charts:
 #    location: DocHub/Руководство/Документы/Диаграммы
 #    description: Диаграммы
@@ -478,14 +481,6 @@ docs:
           }
         }
       )
-  dochub.example.asyncapi:
-    type: AsyncApi
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: examples/asyncapi.yaml
 
   # *****************************************  
   #                 Шаблоны

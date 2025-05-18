@@ -1,8 +1,11 @@
 # AsyncApi
 
-Предназначен для описания событийно-ориентированных сервисов. Пример контракта с официального
-[сайта](https://www.asyncapi.com/blog/understanding-asyncapis).
+[AsyncAPI](https://www.asyncapi.com/blog/understanding-asyncapis) — это открытый стандарт и спецификация, предназначенные для
+описания событийно-ориентированных архитектур и асинхронных коммуникаций между сервисами. Он позволяет формализовать и
+документировать взаимодействия в системах, основанных на обмене сообщениями, таких как микросервисы, IoT-устройства и
+распределённые приложения.
 
+Пример контракта:
 ```yaml
 asyncapi: 2.0.0
 info:
@@ -56,8 +59,13 @@ components:
           format: date-time
 ```
 
-Представление документа в DocHub:
+Код DocHub:
+```code-frame
+/docs/dochub.presentations.asyncapi.example
+```
 
-![AsyncAPI контракт](@document/dochub.example.asyncapi)
+Результат:
+
+![AsyncAPI контракт](@document/dochub.presentations.asyncapi.example)
 
 
