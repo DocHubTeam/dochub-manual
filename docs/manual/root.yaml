@@ -5,6 +5,19 @@ imports:
   - metamodel/root.yaml
   - dochuber/root.yaml
 docs:
+    # *********************************************
+    #               Обновленный мануал
+    # *********************************************
+    dochub.jsonata:
+      location: /DocHub/JSONata+
+      description: Использование JSONata в DocHub
+      type: markdown
+      source: jsonata.md
+      icon: mdi-code-json
+
+    # *********************************************
+    #               Устаревший мануал
+    # *********************************************
     dochub.manual:
         location: DocHub/Руководство
         description: Руководство
@@ -87,15 +100,6 @@ docs:
         - dochub.front
         - dochub.front.spa
         - dochub.front.spa.dataset
-    dochub.jsonata:
-      location: DocHub/Руководство/JSONata+
-      description: Расширения JSONata
-      type: markdown
-      subjects:
-        - dochub.front
-        - dochub.front.spa
-        - dochub.front.spa.dataset
-      source: jsonata.md
 #    dochub.deployment:
 #      icon: settings
 #      location: DocHub/Развертывание
