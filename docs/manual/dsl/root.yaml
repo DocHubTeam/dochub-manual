@@ -1,3 +1,13 @@
+docs:
+  #**************************************
+  #       functions
+  #**************************************
+  dochub.dsl.functions:
+    location: /DocHub/DSL/functions
+    description: Пользовательские функции
+    type: markdown
+    source: functions.md
+    icon: mdi-function
 functions:
   demo_summ:
     title: Простой пример сложения массива
