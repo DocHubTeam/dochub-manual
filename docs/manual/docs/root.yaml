@@ -15,6 +15,75 @@ docs:
     type: markdown
     source: presentations.md
   # *****************************************  
+  #                 Шаблоны
+  # *****************************************  
+  dochub.presentations.templates:
+    # Пример генерации markdown документа по шаблону
+    location: /DocHub/Презентации/Шаблоны
+    description: Использование шаблонов в презентациях DocHub
+    type: markdown
+    autor: R.Piontik
+    icon: mdi-mustache
+    approvers:
+      # Кастомное поле - список согласующих
+      - P.Petrov
+      - S.Sidorov
+      - N.Nikolaev
+    source: > # JSONata запрос для формирования параметров шаблона
+      (
+        {
+          "id": $self._id,              /* Идентификатор документа */
+          "autor": $self.autor,         /* Автор документа */
+          "approvers": $self.approvers, /* Согласующие */
+          "docs": [docs.$spread().{     /* Другие документы автора */
+            "id": $keys()[0],
+            "title": *.description,
+            "autor": *.autor
+          }][autor=$self.autor]
+        }
+      )
+    template: templates.md # Шаблон документа
+  dochub.presentations.templates.pml:
+    # Пример генерации PlantUML документа по шаблону
+    type: PlantUML
+    source: >
+      (
+        {
+          "entities": $distinct([     /* Получаем все использованные сущности при описании архитектуры */ 
+              components.*.entity
+          ])
+        }
+      )
+    template: examples/template.puml
+  dochub.presentations.templates.asyncapi:
+    # Пример генерации AsyncAPI документа по шаблону
+    type: AsyncAPI
+    source: >
+      (
+        $BODY := $mergedeep([components.*.asyncapi]);
+        {
+            "content": [$BODY.$spread().{
+                "field": $keys()[0],
+                "body": $string($lookup($, $keys()[0]))
+            }]
+        }
+      )
+    template: examples/asyncapi_template.json
+  dochub.presentations.templates.openapi:
+    # Пример генерации OpenAPI документа по шаблону
+    type: OpenAPI
+    source: >
+      (
+        $BODY := $mergedeep([components.*.openapi]);
+        {
+            "content": [$BODY.$spread().{
+                "field": $keys()[0],
+                "body": $string($lookup($, $keys()[0]))
+            }]
+        }
+      )
+    template: examples/openapi_template.json    
+  # *****************************************  
   #             Сетевые диаграммы
   # *****************************************  
   dochub.presentations.network:
@@ -475,81 +544,4 @@ docs:
 #      - dochub.front.spa.blank.doc
 #    source: charts.md
 
-  # *****************************************  
-  #                 Шаблоны
-  # *****************************************  
-  dochub.templates:
-    # Пример генерации markdown документа по шаблону
-    location: DocHub/Руководство/Документы/Шаблоны
-    description: Шаблоны
-    type: markdown
-    autor: R.Piontik # Кастомное поле - Автор документа
-    approvers:
-      # Кастомное поле - список согласующих
-      - P.Petrov
-      - S.Sidorov
-      - N.Nikolaev
-    source: > # JSONata запрос для формирования параметров шаблона
-      (
-        {
-          "id": $self._id,              /* Идентификатор документа */
-          "autor": $self.autor,         /* Автор документа */
-          "approvers": $self.approvers, /* Согласующие */
-          "docs": [docs.$spread().{     /* Другие документы автора */
-            "id": $keys()[0],
-            "title": *.description,
-            "autor": *.autor
-          }][autor=$self.autor]
-        }
-      )
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    template: templates.md # Шаблон документа
-  dochub.templates.pml:
-    # Пример генерации PlantUML документа по шаблону
-    type: PlantUML
-    source: >
-      (
-        {
-          "entities": $distinct([     /* Получаем все использованные сущности при описании архитектуры */ 
-              components.*.entity
-          ])
-        }
-      )
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    template: examples/template.puml
-  dochub.templates.asyncapi:
-    # Пример генерации AsyncAPI документа по шаблону
-    type: AsyncAPI
-    source: >
-      (
-        $BODY := $mergedeep([components.*.asyncapi]);
-        {
-            "content": [$BODY.$spread().{
-                "field": $keys()[0],
-                "body": $string($lookup($, $keys()[0]))
-            }]
-        }
-      )
-    template: examples/asyncapi_template.json
-  dochub.templates.openapi:
-    # Пример генерации OpenAPI документа по шаблону
-    type: OpenAPI
-    source: >
-      (
-        $BODY := $mergedeep([components.*.openapi]);
-        {
-            "content": [$BODY.$spread().{
-                "field": $keys()[0],
-                "body": $string($lookup($, $keys()[0]))
-            }]
-        }
-      )
-    template: examples/openapi_template.json
+
