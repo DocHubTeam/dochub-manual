@@ -14,7 +14,16 @@ docs:
     autor: R.Piontik
     type: markdown
     source: presentations.md
-
+  # *****************************************  
+  #                 Таблицы
+  # *****************************************  
+  dochub.presentations.tables:
+    location: /DocHub/Презентации/Таблицы
+    description: Использование презентаций Таблицы в DocHub
+    autor: R.Piontik
+    type: markdown
+    source: tables.md
+    icon: mdi-table
   # *****************************************  
   #                 SmartAnts
   # *****************************************  
@@ -390,17 +399,6 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: asyncapi.md
-  dochub.tables:
-    location: DocHub/Руководство/Документы/Таблицы
-    description: Таблицы
-    autor: R.Piontik
-    type: markdown
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: tables.md
 #  dochub.charts:
 #    location: DocHub/Руководство/Документы/Диаграммы
 #    description: Диаграммы

@@ -1,5 +1,5 @@
 docs:
-  dochub.table.preset:        # Табличный документ на основании предопределенных данных
+  dochub.presentations.tables.examples.preset:        # Табличный документ на основании предопределенных данных
     type: table               # Тип документа 
     headers:                  # Заголовки таблицы
       - value: id             # Идентификатор поля для вывода в колонке
@@ -16,7 +16,7 @@ docs:
         payload: Значение 1   # Значение поля "id"
       - id: 2
         payload: Значение 2
-  dochub.table.select:        # Табличный документ на основании запроса к данным архитектуры
+  dochub.presentations.tables.examples.select:        # Табличный документ на основании запроса к данным архитектуры
     type: table
     headers:
       - value: from
@@ -63,7 +63,7 @@ docs:
             };
         )])^(from)
       )
-  dochub.table.ex_jsonata:
+  dochub.presentations.tables.examples.ex_jsonata:
     type: table
     headers:                  
       - value: id             
@@ -78,7 +78,7 @@ docs:
         align: left
         link: link
     source: contexts.jsonata     # Файл с запросом JSONata
-  dochub.table.ex_yaml:
+  dochub.presentations.tables.examples.ex_yaml:
     type: table               
     headers:                  
       - value: name             
@@ -87,16 +87,17 @@ docs:
         align: left           
         width: 100%            
     source: autors.yaml           # Файл с данными
-  dochub.table.ex_http:
+  dochub.presentations.tables.examples.ex_http:
     type: table               
     headers:                  
       - value: title
         text: Name
         sortable: true        
         align: left           
-    origin: https://labs.ft.com/tech-radar/demo.json   # Внешний ресурс
-    source: showcases.jsonata     # Обработа данных внешнего ресурса
-  dochub.table.dataset:         # Табличный документ на оcновании источника данных
+    # Используем allorigins для обхода проблемы CORSE
+    origin: https://api.allorigins.win/raw?url=https://labs.ft.com/tech-radar/demo.json   # Внешний ресурс
+    source: showcases.jsonata     # Обработка данных внешнего ресурса
+  dochub.presentations.tables.examples.dataset:         # Табличный документ на оcновании источника данных
     type: table
     headers:
       - value: location
@@ -105,8 +106,8 @@ docs:
         align: left
         width: 100%
         link: link
-    source: dochub.docs           # Идентификтор источника данных
-  dochub.table.dataset.post:    # Табличный с портобработкой данных источника
+    source: dochub.docs           # Идентификатор источника данных
+  dochub.presentations.tables.examples.post:    # Табличный с портобработкой данных источника
     type: table
     headers:
       - value: title
@@ -118,21 +119,12 @@ docs:
     origin: dochub.docs         # Оригинальный источник данных
     source: >                     # Отбирает документы концепции
       (
-        $[$substring(location, 0, 29) = "DocHub/Руководство/Документы/"].{
-          "title": $substring(location, 29),
+        $[$substring(location, 0, 20) = "/DocHub/Презентации/"].{
+          "title": $substring(location, 20),
           "link": link
         }
       )
-  dochub.dataset.preset:        # Табличный документ на оcновании предопределенного источника данных
-    type: table
-    headers:
-      - value: title
-        text: Класс критичности
-        sortable: true
-        align: left
-        width: 100%
-    source: dochub.components.criticality
-  dochub.dataset.li:           # Табличный документ на оcновании предопределенного источника данных
+  dochub.presentations.tables.examples.li:           # Табличный документ на оcновании предопределенного источника данных
     type: table
     headers:
       - value: location
@@ -142,7 +134,7 @@ docs:
         width: 100%
         link: link
     source: dochub.components.l1
-  dochub.table.integrations:          # Базовое описание таблицы интеграций
+  dochub.presentations.tables.examples.integrations:          # Базовое описание таблицы интеграций
     type: table
     headers:
       - value: from
@@ -171,14 +163,14 @@ docs:
         sortable: true
         align: left
         link: link-contract
-  dochub.table.integrations.vuex:     # Отбирает только компоненты VUEX
+  dochub.presentations.tables.examples.vuex:     # Отбирает только компоненты VUEX
     $prototype: dochub.table.select   # Родительская таблицы
     origin: dochub.integrations       # Базовый источник данных
     source: >
         (
             $[from="VUEX" or to="VUEX"]
         )
-  dochub.table.multi_dependencies:        # Табличный документ на основании источника данных с множественными зависимостями
+  dochub.presentations.tables.examples.multi_dependencies:        # Табличный документ на основании источника данных с множественными зависимостями
     type: table
     headers:
       - value: from
@@ -207,6 +199,7 @@ docs:
         sortable: true
         align: left
     source: dochub.multi_dependencies
+    
 datasets:                       # Источники данных
   # **********************************************
   #     Источник с предопределенными данными
