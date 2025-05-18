@@ -76,15 +76,6 @@ docs:
   #        - dochub.front.spa.blank
   #        - dochub.front.spa.blank.radar
   #      source: radar.md
-  dochub.inheritance:
-    location: DocHub/Руководство/Наследование
-    description: Наследование объектов
-    type: markdown
-    source: inheritance.md
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.dataset
   #    dochub.deployment:
   #      icon: settings
   #      location: DocHub/Развертывание

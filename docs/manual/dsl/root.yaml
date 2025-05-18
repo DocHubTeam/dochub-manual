@@ -10,18 +10,28 @@ docs:
     title: DSL
     icon: mdi-account-group-outline
   #**************************************
-  #                 DSL
+  #             $prototype
   #**************************************
-  dochub.datasets:
-    location: /DocHub/DSL/imports/datasets
+  dochub.dsl.prototype:
+    location: /DocHub/DSL/$prototype
+    title: $prototype
+    description: Наследование объектов
+    type: markdown
+    source: prototype.md
+  #**************************************
+  #               datasets
+  #**************************************
+  dochub.dsl.datasets:
+    location: /DocHub/DSL/datasets
     title: datasets
     description: Источники данных
     type: markdown
     source: datasets.md
+    icon: mdi-database
   #**************************************
   #               imports
   #**************************************
-  dochub.imports:
+  dochub.dsl.imports:
     location: /DocHub/DSL/imports
     title: imports
     description: Импорт манифестов
