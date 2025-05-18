@@ -82,7 +82,24 @@ docs:
             }]
         }
       )
-    template: examples/openapi_template.json    
+    template: examples/openapi_template.json
+  # *****************************************  
+  #             ArchiMate
+  # *****************************************  
+  dochub.presentations.archimate:
+    location: /DocHub/Презентации/ArchiMate
+    type: markdown
+    source: archimate.md
+    title: ArchiMate
+    description: Использование презентации ArchiMate в DocHub
+    icon: mdi-picture-in-picture-bottom-right
+  dochub.presentations.archimate.example:
+    #Раскомментируй, если нужно, чтобы документ стал доступен из меню 
+    #location: /DocHub/Презентации/ArchiMate/Пример
+    type: archimatejs
+    source: examples/example.archimate
+    title: ArchiMate
+    
   # *****************************************  
   #             Сетевые диаграммы
   # *****************************************  
@@ -351,7 +368,7 @@ docs:
     autor: R.Piontik
     type: smartants
     source: examples/sa-query.jsonata
-    
+
   # *****************************************  
   #                  Draw.io
   # *****************************************  
@@ -360,7 +377,7 @@ docs:
     description: Использование презентаций Draw.io в DocHub
     type: markdown
     source: drawio.md
-    icon: mdi-picture-in-picture-bottom-right 
+    icon: mdi-picture-in-picture-bottom-right
   dochub.presentations.drawio.example:
     #Раскомментируй, если нужно, чтобы документ стал доступен из меню 
     #location: /DocHub/Презентации/Draw.io/Пример
@@ -395,7 +412,7 @@ docs:
     #location: /DocHub/Презентации/Swagger/Пример
     type: OpenAPI
     source: examples/example.yaml
-  
+
   # *****************************************  
   #                  Markdown
   # *****************************************  
@@ -406,7 +423,7 @@ docs:
     type: markdown
     source: markdown.md
     icon: mdi-file-document-outline
-  
+
   # *****************************************  
   #                  PlantUML
   # *****************************************  
@@ -422,7 +439,7 @@ docs:
     #location: /DocHub/Презентации/PlantUML/Пример
     type: PlantUML
     source: examples/example.puml
-  
+
   # *****************************************  
   #                  BPMN
   # *****************************************  
@@ -476,7 +493,7 @@ docs:
     autor: R.Piontik
     type: jodit
     source: examples/wysiwyg.wyg
-    
+
   # *****************************************  
   #                Excalidraw
   # ***************************************** 
@@ -494,11 +511,7 @@ docs:
     autor: R.Piontik
     type: excalidraw
     source: examples/excalidraw.excalidraw
-  
 
-
-
-  
   # *****************************************  
   #        Руководство по документам 
   # *****************************************  
@@ -513,17 +526,17 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: docs.md
-#  dochub.mermaid:
-#    location: DocHub/Руководство/Документы/Mermaid
-#    description: Mermaid
-#    autor: R.Piontik
-#    type: markdown
-#    subjects:
-#      - dochub.front
-#      - dochub.front.spa
-#      - dochub.front.spa.blank
-#      - dochub.front.spa.blank.doc
-#    source: mermaid.md
+  #  dochub.mermaid:
+  #    location: DocHub/Руководство/Документы/Mermaid
+  #    description: Mermaid
+  #    autor: R.Piontik
+  #    type: markdown
+  #    subjects:
+  #      - dochub.front
+  #      - dochub.front.spa
+  #      - dochub.front.spa.blank
+  #      - dochub.front.spa.blank.doc
+  #    source: mermaid.md
   dochub.example.mermaid:
     type: Mermaid
     subjects:
@@ -532,6 +545,7 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: examples/mermaid.mmd
+
 #  dochub.charts:
 #    location: DocHub/Руководство/Документы/Диаграммы
 #    description: Диаграммы
@@ -543,5 +557,3 @@ docs:
 #      - dochub.front.spa.blank
 #      - dochub.front.spa.blank.doc
 #    source: charts.md
-
-
