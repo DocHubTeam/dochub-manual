@@ -10,6 +10,16 @@ docs:
     title: DSL
     icon: mdi-account-group-outline
   #**************************************
+  #             $constructor
+  #**************************************
+  dochub.dsl.constructor:
+    location: /DocHub/DSL/$constructor
+    title: $constructor
+    description: Конструктор презентаций
+    type: markdown
+    source: constructor.md
+    icon: mdi-cog-outline
+  #**************************************
   #             $prototype
   #**************************************
   dochub.dsl.prototype:
@@ -18,6 +28,7 @@ docs:
     description: Наследование объектов
     type: markdown
     source: prototype.md
+    icon: mdi-cogs
   #**************************************
   #               datasets
   #**************************************
