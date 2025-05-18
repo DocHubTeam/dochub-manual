@@ -24,7 +24,7 @@ docs:
     autor: R.Piontik
     type: markdown
     source: smartants.md
-
+    icon: mdi-bug
   dochub.presentations.smartants.examples.simple:
     location: /DocHub/Презентации/SmartAnts/01 Простой пример
     description: Простой пример использования SmartAnts
