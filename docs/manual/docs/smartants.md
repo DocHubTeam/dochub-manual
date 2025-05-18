@@ -9,45 +9,13 @@
 
 ## Простейшее представление
 
-```yaml
-  ...
-  dochub.smartants.examples.simple:
-    location: DocHub/Руководство/Документы/Представления/01 Простой пример
-    autor: R.Piontik
-    type: smartants           # Тип документа
-    source:                   # Задаем константные данные для генерации диаграммы
-      header:                 # Заголовок диаграммы
-        title: вторизация    # Текст заголовка
-        style:                # Стили заголовка
-          color: "#fbaaaa"
-          font-size: 22px
-          font-weight: 800
-      config:                 # Конфигурируем расположение элементов на диаграмме 
-        distance: 120         # Дистанция между элементами
-        trackWidth: 24        # Ширина дорожек (треков)
-      nodes:                  # Определяем элементы диаграммы
-        system:               # Идентификатор элемента. Определяем иерархию при отображении диаграммы
-          title: Система      # Название компонента
-          symbol: system      # Символ (примитив) которым будет представлен элемент на диаграмме
-        user:
-          title: Пользователь
-          symbol: user
-      links:                    # Связи между компонентами
-        - from: user            # Откуда будет прокладываться маршрут
-          to: system            # Куда
-          title: Логин и пароль # Описание маршрута
-          style: "->"           # Направление маршрута <- / -> / <->
-          link: "/docs/dochub.swagger" # Ссылка перехода при клике на надпись
-        - from: system
-          to: user
-          title: JWT токен
-          style: "->"
-          link: "/docs/dochub.swagger"
-  ...
+```code-frame
+/docs/dochub.presentations.smartants.examples.simple
 ```
+
 Результат генерации:
 
-![Простой пример](@document/dochub.smartants.examples.simple)
+![Простой пример](@document/dochub.presentations.smartants.examples.simple)
 
 Обратите внимание, что вы можете взаимодействовать в диаграммой. Мышкой кликните по любому элементу и вы увидите
 как по дорожкам "побегут муравьи", которые наглядно продемонстрируют направления связей компонентов.
@@ -62,71 +30,24 @@
 взаимодействия объектов, но скрывающая детали. Это очень удобно для анализа обширных ландшафтов с большим количеством связей.
 
 Есть возможность указать цвет связей:
-
-```yaml
-  ...
-  dochub.smartants.examples.simple:
-      ...
-      links:                    # Связи между компонентами
-        - from: user            
-          to: system            
-          title: Логин и пароль 
-          style: "-[#ff0000]->"         # Указывается цвет линии через RGB
-          link: "/docs/dochub.swagger" 
-        - from: system
-          to: user
-          title: JWT токен
-          style: "-[#green]->"         # Указывается цвет линии через alias
-          link: "/docs/dochub.swagger"
-  ...
+```code-frame
+/docs/dochub.presentations.smartants.examples.colors/source/links
 ```
 
 Результат:
 
-![Цвет связей](@document/dochub.smartants.examples.colors)
+![Цвет связей](@document/dochub.presentations.smartants.examples.colors)
 
 ## Отображение элементов с иерархией
 
 Добавим на диаграмму домены. Пользователь будет помещаться во внешней среде, а система во внутренней.
 
-```yaml
-  ...
-  dochub.smartants.examples.domains:
-    location: DocHub/Руководство/Документы/SmartAnts/02 Зонирование диаграммы
-    autor: R.Piontik
-    type: smartants           
-    source:                   
-      config:                 
-        distance: 120         
-        trackWidth: 24        
-      nodes:
-        inside:                      # Определим домены 
-          title: Внутренняя среда
-          background: lightgreen     # добавим фон области
-          opacity: 0.3               # и прозрачность фона
-        outside:
-          title: Внешняя среда
-        inside.system:               # Добавим в идентификатор принадлежность к домену "inside"
-          title: Система      
-          symbol: system      
-        outside.user:                # Аналогично для пользователя добавим домен "outside"
-          title: Пользователь
-          symbol: user
-      links:                    
-        - from: outside.user         # Модифицируем идентификаторы в связях      
-          to: inside.system            
-          title: Логин и пароль 
-          style: "->"           
-        - from: inside.system
-          to: outside.user
-          title: JWT токен
-          style: "->"
-  ...
+```code-frame
+/docs/dochub.presentations.smartants.examples.domains
 ```
-
 В результате, система и пользователь будут помещены в области отображающие их принадлежность доменам.
 
-![Пример иерархии на диаграмме](@document/dochub.smartants.examples.domains)
+![Пример иерархии на диаграмме](@document/dochub.presentations.smartants.examples.domains)
 
 
 ## Интерактивное взаимодействия с диаграммой
@@ -135,18 +56,12 @@
 Для того, чтобы посмотреть на нее в деле, усложним диаграмму. В этот раз разместим данные для 
 построения диаграммы в [отдельном файле](/documentation/docs/manual/docs/examples/sa-complex.yaml).
 
-```yaml
-  ...
-  dochub.smartants.examples.complex:
-    location: DocHub/Руководство/Документы/SmartAnts/02 Сложная диаграмма
-    autor: R.Piontik
-    type: smartants           
-    source: examples/smartants.yaml   # Данные для диаграммы расположены в файла 
-  ...
+```code-frame
+/docs/dochub.presentations.smartants.examples.complex
 ```
 
 Результат:
-![Пример сложной диаграммы](@document/dochub.smartants.examples.complex)
+![Пример сложной диаграммы](@document/dochub.presentations.smartants.examples.complex)
 
 Диаграмма выглядит сложной. Для ее разъяснения кликните мышкой, например, на "API шлюз". 
 Будут подсвечен и анимирован весь его интеграционный ландшафт.
@@ -160,6 +75,7 @@
 Для этого используются следующие настройки:
 
 **hideBoundaryTitles** - выключить заголовки у областей:
+
 ```yaml
 ...
 config:
@@ -170,7 +86,7 @@ config:
 ```
 
 Результат на примере сложной диаграммы:
-![Результат на примере сложной диаграммы](@document/dochub.smartants.examples.complex.hideboundaries)
+![Результат на примере сложной диаграммы](@document/dochub.presentations.smartants.examples.complex.hideboundaries)
 
 **hideLeafTitles** - выключить заголовки у элементов:
 ```yaml
@@ -183,7 +99,7 @@ config:
 ```
 
 Результат на примере сложной диаграммы:
-![Результат на примере сложной диаграммы](@document/dochub.smartants.examples.complex.hideleaves)
+![Результат на примере сложной диаграммы](@document/dochub.presentations.smartants.examples.complex.hideleaves)
 
 **hideTitle** - индивидуально выключить заголовок у элемента или области:
 ```yaml
@@ -201,7 +117,7 @@ config:
 ```
 
 Результат на примере сложной диаграммы:
-![Результат на примере сложной диаграммы](@document/dochub.smartants.examples.complex.hidetitles)
+![Результат на примере сложной диаграммы](@document/dochub.presentations.smartants.examples.complex.hidetitles)
 
 ## Управление сеткой расположения элементов
 
@@ -239,7 +155,7 @@ nodes:
 ...
 ```
 Получаем такую схему:
-![Получаем такую схему](@document/dochub.smartants.examples.gravity)
+![Получаем такую схему](@document/dochub.presentations.smartants.examples.gravity)
 
 ## Анимированные сценарии
 
@@ -347,7 +263,7 @@ animation:
 ...
 ```
 
-![Пример анимации](@document/dochub.smartants.examples.anim)
+![Пример анимации](@document/dochub.presentations.smartants.examples.anim)
 
 Слева вверху диаграммы теперь есть выпадающий список со сценариями. Выберите нужный и нажмите кнопку "Play".
 
@@ -375,9 +291,9 @@ nodes:
     title: Мой символ
     symbol: cat
 ```
-Исходник файла [здесь](/documentation/docs/manual/docs/examples/sa-symbol.yaml). Результат:
+Результат:
 
-![Пример собственного символа](@document/dochub.smartants.examples.custom_symbol)
+![Пример собственного символа](@document/dochub.presentations.smartants.examples.custom_symbol)
 
 
 В Интернет есть масса каталогов SVG изображений, которыми вы можете воспользоваться для создания собственных символов. 
@@ -388,44 +304,15 @@ nodes:
 
 Еще одной супер-силой "умных муравьев" является способность автоматически генерировать диаграммы из данных архитектуры. 
 
-```yaml
-  ...
-  dochub.smartants.examples.simple_query:
-    location: DocHub/Руководство/Документы/SmartAnts/06 Простой запрос к данным
-    autor: R.Piontik
-    type: smartants           
-    source: >
-      (
-        /* Определяем фильтр для компонентов архитектуры */
-        $matcher := /^[a-zA-Z]*\.[a-zA-Z]*$/i;
-        /* Генерируем структуру для диаграммы */
-        {
-          /* Формируем ноды из компонентов */
-          "nodes": $merge(components.$spread().(
-            /* Получаем идентификатор компонента */
-            $id := $keys()[0];
-            /* Если идентификатор компонента удовлетворяет фильтру, создаем ноду */
-            $matcher($id) ? {
-                /* Отсекаем домен верхнего уровня для исключения отображения компонентов в иерархии */
-                $split($id, ".")[1]: {
-                    "title": *.title,
-                    /* Преобразуем entity компонентов в понятные диаграмме символы actor -> user */
-                    "symbol": *.entity = "actor" ? "user" : *.entity
-                }
-            }
-
-          ))
-        }
-      )
-  ...
+```code-frame
+/docs/dochub.presentations.smartants.examples.simple_query
 ```
+![Пример простого запроса к данным](@document/dochub.presentations.smartants.examples.simple_query)
 
-![Пример простого запроса к данным](@document/dochub.smartants.examples.simple_query)
-
-В результате, мы получили сильно упрощенный аналог диаграммы [L1](/architect/contexts/dochub). 
+В результате, мы получили сильно упрощенный аналог диаграммы [L1](@context/dochub). 
 А также на диаграмме есть ошибка. Они возникает из-за того, что компонент "Документы" не имеет символа. 
 
-Следующий запрос устраняет эту проблему ([исходник](/documentation/docs/manual/docs/examples/sa-query.jsonata)):
+Следующий запрос устраняет эту проблему:
 ```json
 (
     /* Определяем константы */
@@ -503,7 +390,7 @@ nodes:
   )
 ```
 
-![Пример сложного запроса к данным](@document/dochub.smartants.examples.complex_query)
+![Пример сложного запроса к данным](@document/dochub.presentations.smartants.examples.complex_query)
 
 
 

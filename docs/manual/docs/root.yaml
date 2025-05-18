@@ -16,6 +16,193 @@ docs:
     source: presentations.md
 
   # *****************************************  
+  #                 SmartAnts
+  # *****************************************  
+  dochub.presentations.smartants:
+    location: /DocHub/Презентации/SmartAnts
+    description: Использование презентаций SmartAnts в DocHub
+    autor: R.Piontik
+    type: markdown
+    source: smartants.md
+
+  dochub.presentations.smartants.examples.simple:
+    location: /DocHub/Презентации/SmartAnts/01 Простой пример
+    description: Простой пример использования SmartAnts
+    autor: R.Piontik
+    type: smartants # Тип документа
+    source:
+      # Задаем константные данные для генерации диаграммы
+      header:
+        # Заголовок диаграммы
+        title: Авторизация # Текст заголовка
+        style:
+          # Стили заголовка
+          color: "#fbaaaa"
+          font-size: 22px
+          font-weight: 800
+      config:
+        # Конфигурируем расположение элементов на диаграмме 
+        distance: 120 # Дистанция между элементами
+        trackWidth: 24 # Ширина дорожек (треков)
+      nodes:
+        # Определяем элементы диаграммы
+        system:
+          # Идентификатор элемента. Определяем иерархию при отображении диаграммы
+          title: Система # Название компонента
+          symbol: system # Символ (примитив) которым будет представлен элемент на диаграмме
+        user:
+          title: Пользователь
+          symbol: user
+      links:
+        # Связи между компонентами
+        - from: user # Откуда будет прокладываться маршрут
+          to: system # Куда
+          title: Логин и пароль # Описание маршрута
+          style: "->" # Направление маршрута <- / -> / <->
+          link: "@document/dochub.presentations.swagger.example" # Ссылка перехода при клике на надпись
+        - from: system
+          to: user
+          title: JWT токен
+          style: "->"
+          link: "@document/dochub.presentations.swagger.example"
+  dochub.presentations.smartants.examples.colors:
+    description: Пример раскрашивания линий
+    autor: R.Piontik
+    type: smartants
+    source:
+      config:
+        distance: 120
+        trackWidth: 24
+      nodes:
+        system:
+          title: Система
+          symbol: system
+        user:
+          title: Пользователь
+          symbol: user
+      links:
+        - from: user
+          to: system
+          title: Логин и пароль
+          style: "-[#ff0000]->" # Указывается цвет линии через RGB
+          link: "@document/dochub.presentations.swagger.example"
+        - from: system
+          to: user
+          title: JWT токен
+          style: "-[#green]->" # Указывается цвет линии через alias
+          link: "@document/dochub.presentations.swagger.example"
+  dochub.presentations.smartants.examples.domains:
+    location: /DocHub/Презентации/SmartAnts/02 Домены
+    description: Пример диаграммы SmartAnts с доменами
+    autor: R.Piontik
+    type: smartants
+    source:
+      config:
+        distance: 120
+        trackWidth: 24
+      nodes:
+        inside:
+          # Определим домены 
+          title: Внутренняя среда
+          background: lightgreen # добавим фон области
+          opacity: 0.3 # и прозрачность фона
+        outside:
+          title: Внешняя среда
+        inside.system:
+          # Добавим в идентификатор принадлежность к домену "inside"
+          title: Система
+          symbol: system
+        outside.user:
+          # Аналогично для пользователя добавим домен "outside"
+          title: Пользователь
+          symbol: user
+      links:
+        - from: outside.user # Модифицируем идентификаторы в связях      
+          to: inside.system
+          title: Логин и пароль
+          style: "->"
+        - from: inside.system
+          to: outside.user
+          title: JWT токен
+          style: "->"
+  dochub.presentations.smartants.examples.complex:
+    location: /DocHub/Презентации/SmartAnts/03 Сложная диаграмма
+    description: Сложная диаграмма SmartAnts
+    autor: R.Piontik
+    type: smartants
+    source: examples/sa-complex.yaml
+  dochub.presentations.smartants.examples.complex.hideboundaries:
+    description: Сложная диаграмма SmartAnts. Скрыты заголовки областей
+    type: smartants
+    source: examples/sa-complex-hide-boundary.yaml
+  dochub.presentations.smartants.examples.complex.hideleaves:
+    description: Сложная диаграмма SmartAnts. Скрыты заголовки элементов
+    type: smartants
+    source: examples/sa-complex-hide-leaves.yaml
+  dochub.presentations.smartants.examples.complex.hidetitles:
+    description: Сложная диаграмма SmartAnts. Скрыты точечно заголовки элемента и области
+    type: smartants
+    source: examples/sa-complex-hide-title.yaml
+  dochub.presentations.smartants.examples.group.links:
+    location: /DocHub/Презентации/SmartAnts/04 Cвязи объединенных объектов
+    description: Диаграмма взаимодействий объединенных объектов SmartAnts
+    autor: R.Piontik
+    type: smartants
+    source: examples/sa-group.yaml
+  dochub.presentations.smartants.examples.gravity:
+    location: /DocHub/Презентации/SmartAnts/05 Gravity points
+    description: Размещение объектов объединенных в группы
+    autor: R.Piontik
+    type: smartants
+    source: examples/sa-gravity.yaml
+  dochub.presentations.smartants.examples.anim:
+    location: /DocHub/Презентации/SmartAnts/06 Анимация
+    description: Анимированная диаграмма SmartAnts
+    autor: R.Piontik
+    type: smartants
+    source: examples/sa-anim.yaml
+  dochub.presentations.smartants.examples.custom_symbol:
+    location: /DocHub/Презентации/SmartAnts/07 Собственные символы
+    description: Кастомные символы SmartAnts
+    autor: R.Piontik
+    type: smartants
+    source: examples/sa-symbol.yaml
+  dochub.presentations.smartants.examples.simple_query:
+    location: /DocHub/Презентации/SmartAnts/08 Простой запрос к данным
+    description: Простой запрос к данным в SmartAnts
+    autor: R.Piontik
+    type: smartants
+    source: >
+      (
+        /* Определяем фильтр для компонентов архитектуры */
+        $matcher := /^[a-zA-Z]*\.[a-zA-Z]*$/i;
+        /* Генерируем структуру для диаграммы */
+        {
+          /* Формируем ноды из компонентов */
+          "nodes": $merge(components.$spread().(
+            /* Получаем идентификатор компонента */
+            $id := $keys()[0];
+            /* Если идентификатор компонента удовлетворяет фильтру, создаем ноду */
+            $matcher($id) ? {
+                /* Отсекаем домен верхнего уровня для исключения отображения компонентов в иерархии */
+                $split($id, ".")[1]: {
+                    "title": *.title,
+                    /* Преобразуем entity компонентов в понятные диаграмме символы actor -> user */
+                    "symbol": *.entity = "actor" ? "user" : *.entity
+                }
+            }
+
+          ))
+        }
+      )
+  dochub.presentations.smartants.examples.complex_query:
+    location: /DocHub/Презентации/SmartAnts/09 Сложный запрос к данным
+    description: Сложный запрос к данным в SmartAnts
+    autor: R.Piontik
+    type: smartants
+    source: examples/sa-query.jsonata
+    
+  # *****************************************  
   #                  Draw.io
   # *****************************************  
   dochub.presentations.drawio:
@@ -174,6 +361,14 @@ docs:
 #      - dochub.front.spa.blank
 #      - dochub.front.spa.blank.doc
 #    source: mermaid.md
+  dochub.example.mermaid:
+    type: Mermaid
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.doc
+    source: examples/mermaid.mmd
   dochub.network:
     location: DocHub/Руководство/Документы/Network
     description: Network
@@ -206,17 +401,6 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.doc
     source: tables.md
-  dochub.smartants:
-    location: DocHub/Руководство/Документы/SmartAnts
-    description: SmartAnts
-    autor: R.Piontik
-    type: markdown
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: smartants.md
 #  dochub.charts:
 #    location: DocHub/Руководство/Документы/Диаграммы
 #    description: Диаграммы
@@ -228,190 +412,7 @@ docs:
 #      - dochub.front.spa.blank
 #      - dochub.front.spa.blank.doc
 #    source: charts.md
-  dochub.smartants.examples.simple:
-    location: DocHub/Руководство/Документы/SmartAnts/01 Простой пример
-    description: Простой пример использования SmartAnts
-    autor: R.Piontik
-    type: smartants # Тип документа
-    source:
-      # Задаем константные данные для генерации диаграммы
-      header:
-        # Заголовок диаграммы
-        title: Авторизация # Текст заголовка
-        style:
-          # Стили заголовка
-          color: "#fbaaaa"
-          font-size: 22px
-          font-weight: 800
-      config:
-        # Конфигурируем расположение элементов на диаграмме 
-        distance: 120 # Дистанция между элементами
-        trackWidth: 24 # Ширина дорожек (треков)
-      nodes:
-        # Определяем элементы диаграммы
-        system:
-          # Идентификатор элемента. Определяем иерархию при отображении диаграммы
-          title: Система # Название компонента
-          symbol: system # Символ (примитив) которым будет представлен элемент на диаграмме
-        user:
-          title: Пользователь
-          symbol: user
-      links:
-        # Связи между компонентами
-        - from: user # Откуда будет прокладываться маршрут
-          to: system # Куда
-          title: Логин и пароль # Описание маршрута
-          style: "->" # Направление маршрута <- / -> / <->
-          link: "/docs/dochub.swagger" # Ссылка перехода при клике на надпись
-        - from: system
-          to: user
-          title: JWT токен
-          style: "->"
-          link: "/docs/dochub.swagger"
-  dochub.smartants.examples.colors:
-    description: Пример раскрашивания линий
-    autor: R.Piontik
-    type: smartants
-    source:
-      config:
-        distance: 120
-        trackWidth: 24
-      nodes:
-        system:
-          title: Система
-          symbol: system
-        user:
-          title: Пользователь
-          symbol: user
-      links:
-        - from: user
-          to: system
-          title: Логин и пароль
-          style: "-[#ff0000]->" # Указывается цвет линии через RGB
-          link: "/docs/dochub.swagger"
-        - from: system
-          to: user
-          title: JWT токен
-          style: "-[#green]->" # Указывается цвет линии через alias
-          link: "/docs/dochub.swagger"
-  dochub.smartants.examples.domains:
-    location: DocHub/Руководство/Документы/SmartAnts/02 Домены
-    description: Пример диаграммы SmartAnts с доменами
-    autor: R.Piontik
-    type: smartants
-    source:
-      config:
-        distance: 120
-        trackWidth: 24
-      nodes:
-        inside:
-          # Определим домены 
-          title: Внутренняя среда
-          background: lightgreen # добавим фон области
-          opacity: 0.3 # и прозрачность фона
-        outside:
-          title: Внешняя среда
-        inside.system:
-          # Добавим в идентификатор принадлежность к домену "inside"
-          title: Система
-          symbol: system
-        outside.user:
-          # Аналогично для пользователя добавим домен "outside"
-          title: Пользователь
-          symbol: user
-      links:
-        - from: outside.user # Модифицируем идентификаторы в связях      
-          to: inside.system
-          title: Логин и пароль
-          style: "->"
-        - from: inside.system
-          to: outside.user
-          title: JWT токен
-          style: "->"
-  dochub.smartants.examples.complex:
-    location: DocHub/Руководство/Документы/SmartAnts/03 Сложная диаграмма
-    description: Сложная диаграмма SmartAnts
-    autor: R.Piontik
-    type: smartants
-    source: examples/sa-complex.yaml
-  dochub.smartants.examples.complex.hideboundaries:
-    description: Сложная диаграмма SmartAnts. Скрыты заголовки областей
-    type: smartants
-    source: examples/sa-complex-hide-boundary.yaml
-  dochub.smartants.examples.complex.hideleaves:
-    description: Сложная диаграмма SmartAnts. Скрыты заголовки элементов
-    type: smartants
-    source: examples/sa-complex-hide-leaves.yaml
-  dochub.smartants.examples.complex.hidetitles:
-    description: Сложная диаграмма SmartAnts. Скрыты точечно заголовки элемента и области
-    type: smartants
-    source: examples/sa-complex-hide-title.yaml
-  dochub.smartants.examples.group-links:
-    location: DocHub/Руководство/Документы/SmartAnts/04 Cвязи объединенных объектов
-    description: Диаграмма взаимодействий объединенных объектов SmartAnts
-    autor: R.Piontik
-    type: smartants
-    source: examples/sa-group.yaml
-  dochub.smartants.examples.gravity:
-    location: DocHub/Руководство/Документы/SmartAnts/05 Gravity points
-    description: Размещение объектов объединенных в группы
-    autor: R.Piontik
-    type: smartants
-    source: examples/sa-gravity.yaml
-  dochub.smartants.examples.anim:
-    location: DocHub/Руководство/Документы/SmartAnts/06 Анимация
-    description: Анимированная диаграмма SmartAnts
-    autor: R.Piontik
-    type: smartants
-    source: examples/sa-anim.yaml
-  dochub.smartants.examples.custom_symbol:
-    location: DocHub/Руководство/Документы/SmartAnts/07 Собственные символы
-    description: Кастомные символы SmartAnts
-    autor: R.Piontik
-    type: smartants
-    source: examples/sa-symbol.yaml
-  dochub.smartants.examples.simple_query:
-    location: DocHub/Руководство/Документы/SmartAnts/08 Простой запрос к данным
-    description: Простой запрос к данным в SmartAnts
-    autor: R.Piontik
-    type: smartants
-    source: >
-      (
-        /* Определяем фильтр для компонентов архитектуры */
-        $matcher := /^[a-zA-Z]*\.[a-zA-Z]*$/i;
-        /* Генерируем структуру для диаграммы */
-        {
-          /* Формируем ноды из компонентов */
-          "nodes": $merge(components.$spread().(
-            /* Получаем идентификатор компонента */
-            $id := $keys()[0];
-            /* Если идентификатор компонента удовлетворяет фильтру, создаем ноду */
-            $matcher($id) ? {
-                /* Отсекаем домен верхнего уровня для исключения отображения компонентов в иерархии */
-                $split($id, ".")[1]: {
-                    "title": *.title,
-                    /* Преобразуем entity компонентов в понятные диаграмме символы actor -> user */
-                    "symbol": *.entity = "actor" ? "user" : *.entity
-                }
-            }
 
-          ))
-        }
-      )
-  dochub.smartants.examples.complex_query:
-    location: DocHub/Руководство/Документы/SmartAnts/09 Сложный запрос к данным
-    description: Сложный запрос к данным в SmartAnts
-    autor: R.Piontik
-    type: smartants
-    source: examples/sa-query.jsonata
-  dochub.example.mermaid:
-    type: Mermaid
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.doc
-    source: examples/mermaid.mmd
   dochub.example.network:
     type: Network
     subjects:
