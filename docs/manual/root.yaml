@@ -76,15 +76,6 @@ docs:
   #        - dochub.front.spa.blank
   #        - dochub.front.spa.blank.radar
   #      source: radar.md
-  dochub.datasets:
-    location: DocHub/Руководство/Источники данных
-    description: Источники данных
-    type: markdown
-    source: datasets.md
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.dataset
   dochub.inheritance:
     location: DocHub/Руководство/Наследование
     description: Наследование объектов

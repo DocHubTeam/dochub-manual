@@ -10,15 +10,22 @@ docs:
     title: DSL
     icon: mdi-account-group-outline
   #**************************************
+  #                 DSL
+  #**************************************
+  dochub.datasets:
+    location: /DocHub/DSL/imports/datasets
+    title: datasets
+    description: Источники данных
+    type: markdown
+    source: datasets.md
+  #**************************************
   #               imports
   #**************************************
   dochub.imports:
     location: /DocHub/DSL/imports
+    title: imports
     description: Импорт манифестов
     type: markdown
-    subjects:
-      - dochub.front
-      - dochub.front.spa
     source: imports.md
     icon: mdi-import
   #**************************************
@@ -26,6 +33,7 @@ docs:
   #**************************************
   dochub.dsl.functions:
     location: /DocHub/DSL/functions
+    title: fuctions
     description: Пользовательские функции
     type: markdown
     source: functions.md
