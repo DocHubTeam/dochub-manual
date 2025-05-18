@@ -1,6 +1,28 @@
 docs:
+  # *************************************
+  #               DSL DocHub
+  # *************************************
+  dochub.dsl:
+    type: markdown
+    source: dsl.md
+    location: /DocHub/DSL
+    description: Описание предметно-ориентированного языка DocHub (DSL) для использования в подходе "Архитектура как код"
+    title: DSL
+    icon: mdi-account-group-outline
   #**************************************
-  #       functions
+  #               imports
+  #**************************************
+  dochub.imports:
+    location: /DocHub/DSL/imports
+    description: Импорт манифестов
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+    source: imports.md
+    icon: mdi-import
+  #**************************************
+  #               functions
   #**************************************
   dochub.dsl.functions:
     location: /DocHub/DSL/functions

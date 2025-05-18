@@ -14,16 +14,6 @@ docs:
     type: markdown
     source: jsonata.md
     icon: mdi-code-json
-  # *********************************************
-  #               DSL DocHub
-  # *********************************************
-  dochub.dsl:
-    type: markdown
-    source: dsl.md
-    location: /DocHub/DSL
-    description: Описание предметно-ориентированного языка DocHub (DSL) для использования в подходе "Архитектура как код"
-    title: DSL
-    icon: mdi-account-group-outline
 
 
   
@@ -38,14 +28,6 @@ docs:
     subjects:
       - dochub
       - dochub.front
-  dochub.imports:
-    location: DocHub/Руководство/Импорт
-    description: Импорт манифестов
-    type: markdown
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-    source: imports.md
   dochub.components:
     location: /DocHub/Метамодель/Компоненты
     description: Компоненты
