@@ -107,13 +107,3 @@ docs:
     dochub.context.source:
       type: plantuml
       source: context_source.puml
-#**************************************************************
-#                        Backend
-#**************************************************************
-    dochub.backend:
-      location: DocHub/Руководство/API DocHub
-      description: API сервера DocHub
-      type: OpenAPI
-      subjects:
-        - dochub.backend
-      source: backend/api.yaml
