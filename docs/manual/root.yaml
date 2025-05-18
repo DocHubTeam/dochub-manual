@@ -5,109 +5,121 @@ imports:
   - metamodel/root.yaml
   - dochuber/root.yaml
 docs:
-    # *********************************************
-    #               Обновленный мануал
-    # *********************************************
-    dochub.jsonata:
-      location: /DocHub/JSONata+
-      description: Использование JSONata в DocHub
-      type: markdown
-      source: jsonata.md
-      icon: mdi-code-json
+  # *********************************************
+  #               Обновленный мануал
+  # *********************************************
+  dochub.jsonata:
+    location: /DocHub/JSONata+
+    description: Использование JSONata в DocHub
+    type: markdown
+    source: jsonata.md
+    icon: mdi-code-json
+  # *********************************************
+  #               DSL DocHub
+  # *********************************************
+  dochub.dsl:
+    type: markdown
+    source: dsl.md
+    location: /DocHub/DSL
+    description: Описание предметно-ориентированного языка DocHub (DSL) для использования в подходе "Архитектура как код"
+    title: DSL
+    icon: mdi-account-group-outline
 
-    # *********************************************
-    #               Устаревший мануал
-    # *********************************************
-    dochub.manual:
-        location: DocHub/Руководство
-        description: Руководство
-        type: markdown
-        source: introduction.md
-        subjects:
-          - dochub
-          - dochub.front
-    dochub.imports:
-      location: DocHub/Руководство/Импорт
-      description: Импорт манифестов
-      type: markdown
-      subjects:
-        - dochub.front
-        - dochub.front.spa
-      source: imports.md
-    dochub.components:
-      location: /DocHub/Метамодель/Компоненты
-      description: Компоненты
-      type: markdown
-      subjects:
-        - dochub.front
-        - dochub.front.spa.blank
-        - dochub.front.spa.blank.component
-      source: components.md
-    dochub.contexts:
-      location: DocHub/Руководство/Контексты
-      description: Контексты
-      type: markdown
-      subjects:
-        - dochub.front
-        - dochub.front.spa
-        - dochub.front.spa.blank
-        - dochub.front.spa.blank.context
-      source: contexts.md
-    dochub.aspects:
-      location: DocHub/Руководство/Аспекты
-      description: Аспекты
-      type: markdown
-      subjects:
-        - dochub.front
-        - dochub.front.spa
-        - dochub.front.spa.blank
-        - dochub.front.spa.blank.aspect
-      source: aspects.md
-#    dochub.technologies:
-#      location: DocHub/Руководство/Технологии
-#      description: Технологии
-#      type: markdown
-#      subjects:
-#        - dochub.front
-#        - dochub.front.spa
-#      source: technologies.md
-#    dochub.radar:
-#      location: DocHub/Руководство/Техрадар
-#      description: Техрадар
-#      type: markdown
-#      subjects:
-#        - dochub.radar
-#        - dochub.front
-#        - dochub.front.spa
-#        - dochub.front.spa.blank
-#        - dochub.front.spa.blank.radar
-#      source: radar.md
-    dochub.datasets:
-      location: DocHub/Руководство/Источники данных
-      description: Источники данных
-      type: markdown
-      source: datasets.md
-      subjects:
-        - dochub.front
-        - dochub.front.spa
-        - dochub.front.spa.dataset
-    dochub.inheritance:
-      location: DocHub/Руководство/Наследование
-      description: Наследование объектов
-      type: markdown
-      source: inheritance.md
-      subjects:
-        - dochub.front
-        - dochub.front.spa
-        - dochub.front.spa.dataset
-#    dochub.deployment:
-#      icon: settings
-#      location: DocHub/Развертывание
-#      description: Развертывание
-#      type: markdown
-#      subjects:
-#        - dochub.front
-#      source: config/deployment.md
-    dochub.context.source:
-      type: plantuml
-      source: context_source.puml
+
+  
+  # *********************************************
+  #               Устаревший мануал
+  # *********************************************
+  dochub.manual:
+    location: DocHub/Руководство
+    description: Руководство
+    type: markdown
+    source: introduction.md
+    subjects:
+      - dochub
+      - dochub.front
+  dochub.imports:
+    location: DocHub/Руководство/Импорт
+    description: Импорт манифестов
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+    source: imports.md
+  dochub.components:
+    location: /DocHub/Метамодель/Компоненты
+    description: Компоненты
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.component
+    source: components.md
+  dochub.contexts:
+    location: DocHub/Руководство/Контексты
+    description: Контексты
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.context
+    source: contexts.md
+  dochub.aspects:
+    location: DocHub/Руководство/Аспекты
+    description: Аспекты
+    type: markdown
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.blank
+      - dochub.front.spa.blank.aspect
+    source: aspects.md
+  #    dochub.technologies:
+  #      location: DocHub/Руководство/Технологии
+  #      description: Технологии
+  #      type: markdown
+  #      subjects:
+  #        - dochub.front
+  #        - dochub.front.spa
+  #      source: technologies.md
+  #    dochub.radar:
+  #      location: DocHub/Руководство/Техрадар
+  #      description: Техрадар
+  #      type: markdown
+  #      subjects:
+  #        - dochub.radar
+  #        - dochub.front
+  #        - dochub.front.spa
+  #        - dochub.front.spa.blank
+  #        - dochub.front.spa.blank.radar
+  #      source: radar.md
+  dochub.datasets:
+    location: DocHub/Руководство/Источники данных
+    description: Источники данных
+    type: markdown
+    source: datasets.md
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.dataset
+  dochub.inheritance:
+    location: DocHub/Руководство/Наследование
+    description: Наследование объектов
+    type: markdown
+    source: inheritance.md
+    subjects:
+      - dochub.front
+      - dochub.front.spa
+      - dochub.front.spa.dataset
+  #    dochub.deployment:
+  #      icon: settings
+  #      location: DocHub/Развертывание
+  #      description: Развертывание
+  #      type: markdown
+  #      subjects:
+  #        - dochub.front
+  #      source: config/deployment.md
+  dochub.context.source:
+    type: plantuml
+    source: context_source.puml
