@@ -1,8 +1,8 @@
 # Корневой файл для режима разработки непосрдественно в системе управления вурсиями
 imports:
-  # Подключаем репозиторий CEAF Application напрямую
-  - github:DocHubTeam/ceaf-app:master@dochub.yaml
   # Подключаем репозиторий CEAF Knowledge напрямую
   - github:DocHubTeam/ceaf-know:master@dochub.yaml
+  # Подключаем репозиторий CEAF Application напрямую
+  - github:DocHubTeam/ceaf-app:master@dochub.yaml
   # Подключаем продакшен манифест
   - dochub.yaml

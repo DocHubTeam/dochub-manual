@@ -12,8 +12,9 @@ $package:
     version: 4.0.6
     # От каких мета-пакетов зависит данный
     dependencies:
-      # Указывается зависимость от мета-пакета ceaf.app версии 1.0.0 или выше
-      ceaf-app: ">=1.0.2"
+      # Указывается зависимость от мета-пакетов
+      ceaf-known: ">=1.0.0"  # Слой управления знаниями
+      ceaf-app: ">=1.0.2"   # Слой управления приложениями
 imports:
   # Подключаем словарь терминов и определений
   - dictionary.yaml
@@ -21,9 +22,7 @@ imports:
   - dochuber.yaml
   # Подключаем документацию
   - docs/root.yaml
-  - arch/root.yaml
-  - entities/root.yaml
-  - poc/root.yaml
+#  - entities/root.yaml
 
 # Документы
 docs:

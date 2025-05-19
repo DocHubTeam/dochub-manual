@@ -1,6 +1,5 @@
 imports:
   - docs/root.yaml
-  - plugins/root.yaml
   - dsl/root.yaml
   - metamodel/root.yaml
   - dochuber/root.yaml
