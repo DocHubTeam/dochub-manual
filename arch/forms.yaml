@@ -1,7 +1,0 @@
-forms:
-  - entity:
-      - component
-    fields:
-      source:
-        title: Файл
-        required: true

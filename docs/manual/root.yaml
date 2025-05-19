@@ -39,16 +39,6 @@ docs:
       - dochub.front.spa.blank
       - dochub.front.spa.blank.context
     source: contexts.md
-  dochub.aspects:
-    location: DocHub/Руководство/Аспекты
-    description: Аспекты
-    type: markdown
-    subjects:
-      - dochub.front
-      - dochub.front.spa
-      - dochub.front.spa.blank
-      - dochub.front.spa.blank.aspect
-    source: aspects.md
   #    dochub.technologies:
   #      location: DocHub/Руководство/Технологии
   #      description: Технологии
