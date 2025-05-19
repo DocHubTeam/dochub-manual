@@ -2,6 +2,12 @@
 #     Словарь терминов и определений DocHub
 # *************************************************
 dictionary:
+  dsl:
+    forms: [dsl, DSL]
+    definition: >
+      DSL (Domain-Specific Language) — это специализированный язык программирования, предназначенный для
+      решения задач в конкретной предметной области.
+    link: "@document/dochub.dsl"
   aaac:
     forms: [aaac, aac, архкод, archcode]
     definition: >

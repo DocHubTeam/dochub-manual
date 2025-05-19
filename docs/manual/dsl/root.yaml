@@ -136,6 +136,23 @@ docs:
         link: link          # Ссылка
     source: dochub.dsl.datasets.example.dependence
   #**************************************
+  #               entities
+  #**************************************
+  dochub.dsl.entities:
+    location: /DocHub/DSL/entities
+    title: entities
+    description: Общие сведения по использованию сущностей в DocHub
+    type: markdown
+    $constructor: >
+      (
+        $merge([docs."dochub.flex_metamodel.entities",
+          {
+            "$base": "/docs/dochub.flex_metamodel.entities"
+          }
+        ])
+      )
+    icon: mdi-biohazard
+  #**************************************
   #               imports
   #**************************************
   dochub.dsl.imports:
