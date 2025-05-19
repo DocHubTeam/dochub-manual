@@ -38,33 +38,20 @@
 
 Результат:
 
-![Таблица на основании источника данных](@document/dochub.dsl.datasets.examples.jsonata)
+![Таблица на основании источника данных](@document/dochub.dsl.datasets.examples.query)
 
-## Зависимость
+## Зависимость источника данных
 
 Источники данных могут зависеть друг от друга. В примере данные получаются из источника "dochub.components" 
 и дополнительно обрабатываются.
 
-```yaml
-datasets:                       
-  dochub.components:            # Возвращает все архитектурные компоненты DocHub
-    source: >                   # JSONata запрос к архитектуре
-      (
-        [components.$spread().{
-            "id": $keys()[0],
-            "location": *.title,
-            "link": "@component/" & $keys()[0]
-        }[$substring(id, 0, 7)="dochub."]^(title)]
-      )
-  dochub.components.l1:         # Выбирает только L1 для архитектурных компонентов DocHub
-    origin: dochub.components   # Базовый источник данных
-    source: >                   # JSONata запрос к архитектуре
-      ($[$count($split(id, "."))=2])
+```code-frame
+/datasets/dochub.dsl.datasets.example.dependence
 ```
 
 Результат:
 
-![Зависимый источник](@document/dochub.dataset.li)
+![Зависимый источник](@document/dochub.dsl.datasets.examples.dependence)
 
 ## Множественные зависимости
 
@@ -103,7 +90,4 @@ datasets:
       )
 ```
 
-Результат:
-
-![Зависимый источник](@document/dochub.table.multi_dependencies)
 

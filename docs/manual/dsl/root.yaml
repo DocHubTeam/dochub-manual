@@ -63,9 +63,9 @@ docs:
       - value: title
         text: Название
     source: dochub.dsl.datasets.example.preset
-  dochub.dsl.datasets.examples.jsonata:
+  dochub.dsl.datasets.examples.query:
     # Для отображения в меню необходимо раскомментировать
-    # location: /DocHub/DSL/datasets/jsonata
+    # location: /DocHub/DSL/datasets/query
     title: Предопределенные источники данных
     description: Пример предопределенных (константных) источников данных 
     type: table
@@ -77,6 +77,20 @@ docs:
         text: Название
         link: link          # Ссылка
     source: dochub.dsl.datasets.example.query
+  dochub.dsl.datasets.examples.dependence:
+    # Для отображения в меню необходимо раскомментировать
+    # location: /DocHub/DSL/datasets/dependence
+    title: Зависимые источники данных
+    description: Пример использования зависимости источников данных 
+    type: table
+    headers:
+      # Заголовки таблицы
+      - value: id           # Идентификатор поля для вывода в колонке
+        text: Идентификатор # Заголовок колокнки
+      - value: title
+        text: Название
+        link: link          # Ссылка
+    source: dochub.dsl.datasets.example.dependence
   #**************************************
   #               imports
   #**************************************
@@ -149,4 +163,9 @@ datasets:
             "link": "@component/" & $keys()[0]
         }[$substring(id, 0, 7)="dochub."]^(title)]
       )
+  dochub.dsl.datasets.example.dependence:         
+    # Выбирает только L1 для архитектурных компонентов DocHub
+    origin: dochub.components   # Базовый источник данных
+    source: >                   # JSONata запрос к архитектуре
+      ($[$count($split(id, "."))=2])
         
