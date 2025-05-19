@@ -63,6 +63,20 @@ docs:
       - value: title
         text: Название
     source: dochub.dsl.datasets.example.preset
+  dochub.dsl.datasets.examples.jsonata:
+    # Для отображения в меню необходимо раскомментировать
+    # location: /DocHub/DSL/datasets/jsonata
+    title: Предопределенные источники данных
+    description: Пример предопределенных (константных) источников данных 
+    type: table
+    headers:
+      # Заголовки таблицы
+      - value: id           # Идентификатор поля для вывода в колонке
+        text: Идентификатор # Заголовок колокнки
+      - value: title
+        text: Название
+        link: link          # Ссылка
+    source: dochub.dsl.datasets.example.query
   #**************************************
   #               imports
   #**************************************
@@ -125,3 +139,14 @@ datasets:
         title: Уровень K3
       - id: k4
         title: Уровень K4
+  dochub.dsl.datasets.example.query:
+    # JSONata запрос к архитектуре
+    source: >                   
+      (
+        [components.$spread().{
+            "id": $keys()[0],
+            "title": *.title,
+            "link": "@component/" & $keys()[0]
+        }[$substring(id, 0, 7)="dochub."]^(title)]
+      )
+        

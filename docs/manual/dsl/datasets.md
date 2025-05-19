@@ -27,26 +27,18 @@
 
 ## Запросы к данным архитектуры
 
-Есть возможность делать запросы к данным архитектуры используя JSONata запросы.
+Есть возможность выполнять запросы к архитектурным данным с помощью JSONata.
 
-Например, данный запрос находит все архитектурные компоненты принадлежащие DocHub и сортирует их по названию.
+Например, следующий запрос находит все архитектурные компоненты, принадлежащие DocHub, и сортирует их по
+названию.
 
-```yaml
-datasets:                       # Источники данных
-  dochub.components:            # Идентификатор источника
-    source: >                   # JSONata запрос к архитектуре
-      (
-        [components.$spread().{
-            "id": $keys()[0],
-            "location": *.title,
-            "link": "@component/" & $keys()[0]
-        }[$substring(id, 0, 7)="dochub."]^(title)]
-      )
+```code-frame
+/datasets/dochub.dsl.datasets.example.query
 ```
 
 Результат:
 
-![Таблица на основании источника данных](@document/dochub.dsl.datasets.examples.preset)
+![Таблица на основании источника данных](@document/dochub.dsl.datasets.examples.jsonata)
 
 ## Зависимость
 
@@ -114,7 +106,4 @@ datasets:
 Результат:
 
 ![Зависимый источник](@document/dochub.table.multi_dependencies)
-
-
-# Магическое свойство $base
 
