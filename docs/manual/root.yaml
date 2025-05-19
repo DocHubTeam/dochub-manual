@@ -20,14 +20,6 @@ docs:
   # *********************************************
   #               Устаревший мануал
   # *********************************************
-  dochub.manual:
-    location: DocHub/Руководство
-    description: Руководство
-    type: markdown
-    source: introduction.md
-    subjects:
-      - dochub
-      - dochub.front
   dochub.components:
     location: /DocHub/Метамодель/Компоненты
     description: Компоненты
