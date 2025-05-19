@@ -10,6 +10,16 @@ docs:
     title: DSL
     icon: mdi-account-group-outline
   #**************************************
+  #             $base
+  #**************************************
+  dochub.dsl.base:
+    location: /DocHub/DSL/$base
+    title: $base
+    description: Базовая точка монтирования
+    type: markdown
+    source: base.md
+    icon: mdi-vector-point
+  #**************************************
   #             $constructor
   #**************************************
   dochub.dsl.constructor:
@@ -36,9 +46,23 @@ docs:
     location: /DocHub/DSL/datasets
     title: datasets
     description: Источники данных
-    type: markdown
+    type: markdown	    
     source: datasets.md
     icon: mdi-database
+  dochub.dsl.datasets.examples.preset:
+    # Для отображения в меню необходимо раскомментировать
+    # location: /DocHub/DSL/datasets/preset
+    title: Предопределенные источники данных
+    description: Пример предопределенных (константных) источников данных 
+    type: table
+    headers:
+      # Заголовки таблицы
+      - value: id           # Идентификатор поля для вывода в колонке
+        text: Идентификатор # Заголовок колокнки
+        width: 20%          # Ширина колонки 
+      - value: title
+        text: Название
+    source: dochub.dsl.datasets.example.preset
   #**************************************
   #               imports
   #**************************************
@@ -59,6 +83,9 @@ docs:
     type: markdown
     source: functions.md
     icon: mdi-function
+  #****************************************
+  #         Примеры функций
+  #****************************************
 functions:
   demo_summ:
     title: Простой пример сложения массива
@@ -82,3 +109,19 @@ functions:
         /* Для реализации функции используется встроенная функция JSONata $sum() */
         $sum(items)
       )
+
+  #****************************************
+  #         Примеры datasets
+  #****************************************
+datasets:                       
+  dochub.dsl.datasets.example.preset:   
+    # Константно определяются уровни критичности
+    source:                             
+      - id: k1
+        title: Уровень K1
+      - id: k2
+        title: Уровень K2
+      - id: k3
+        title: Уровень K3
+      - id: k4
+        title: Уровень K4
