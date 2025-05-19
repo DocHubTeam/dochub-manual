@@ -39,6 +39,50 @@ docs:
     type: markdown
     source: prototype.md
     icon: mdi-cogs
+  dochub.dsl.prototype.examples.proto:
+    # Базовое описание таблицы интеграций
+    type: table
+    headers:
+      - value: from
+        text: Система 1
+        sortable: true
+        align: left
+        width: 20%
+        link: link-from       
+      - value: to
+        text: Система 2
+        sortable: true
+        align: left
+        width: 20%
+        link: link-to
+      - value: direction
+        text: Связь
+        sortable: true
+        align: center
+        width: 5%
+      - value: title
+        text: Описание
+        sortable: true
+        align: left
+  dochub.dsl.prototype.examples.child: # Дочерняя таблица
+    # Родительская таблица. Наследуется вся мета-конфигурация
+    $prototype: dochub.dsl.prototype.examples.proto   
+    # Данные определяются
+    source: >                          # Отбирает только компоненты VUEX
+        (
+            /* Анализируем все связи компонент и сводим в таблицу */
+            components.$spread().(
+              $from := $keys()[0];
+              *.links.{
+                "from": $from,
+                "link-from": "@component/" & $from,
+                "to": id,
+                "link-to": "@component/" & id,
+                "direction": direction,
+                "title": title
+              }
+            )
+        )    
   #**************************************
   #               datasets
   #**************************************
